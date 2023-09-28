@@ -1,0 +1,32 @@
+## https://bitbucket.org/bucklerlab/practicalhaplotypegraph/wiki/UserInstructions/CreatePHG_step2AssemblyAndWGSHaplotypes.md
+
+# Consistent across config
+host=localHost
+user=sqlite
+password=sqlite
+DB=phg/test_db.db
+DBtype=sqlite
+
+# Multithreading params
+numThreads=16
+
+# Reference path
+referenceFasta=phg/inputDir/reference/Ref.fa
+
+# Reference Path
+LoadHaplotypesFromGVCFPlugin.referenceFasta=phg/inputDir/reference/Ref.fa
+
+# Path to wgs keyfile
+LoadHaplotypesFromGVCFPlugin.wgsKeyFile=phg/load_wgs_genome_key_file.txt
+
+# Directory of all gvcfs used to load haplotypes
+LoadHaplotypesFromGVCFPlugin.gvcfDir=phg/inputDir/loadDB/gvcf/
+
+# Bedfile of haplotype reference ranges
+bedFile=phg/Haplotype_Ranges.bed
+
+# Name to be associated with haplotypes added
+LoadHaplotypesFromGVCFPlugin.haplotypeMethodName=assembly_by_anchorwave
+
+# Description of haplotypes added in this step
+LoadHaplotypesFromGVCFPlugin.haplotypeMethodDescription="files aligned with anchorwave, then turned to gvcf with plugin"
