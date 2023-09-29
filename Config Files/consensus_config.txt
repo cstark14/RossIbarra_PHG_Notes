@@ -1,0 +1,51 @@
+# Documentation: https://bitbucket.org/bucklerlab/practicalhaplotypegraph/wiki/UserInstructions/CreatePHG_step2_consensus.md
+
+# This doesn't matter unless you're doing docker mounting.
+host=localHost
+
+# As long as this is consistent it can be whatever you prefer.
+user=sqlite
+password=sqlite
+
+# Self explanatory, make sure this matches across all config.
+DB=phg/test_db.db
+DBtype=sqlite
+
+# Default, this follows the directory structure of the create default directory command.
+liquibaseOutdir=phg/outputDir
+
+# Required true
+includeVariants=true
+
+# User defined haplotype names for haplotypes produced.
+consensusMethod='consensus'
+
+# Minimum allele freq
+minFreq=0
+
+# Maximum amount of divergence allows, ratio of bp/distance
+mxDiv=0.00001
+
+# Multithreading
+maxThreads=16
+
+# Clusters per reference range
+maxClusters=100
+
+# Required number of sites for haplotype consensus formation.
+minSites=0
+
+# Required coverage for inclusion in consensus
+minCoverage=0
+
+# Minimum taxa required
+minTaxa=1
+
+# Path pointing to ranking of Genomes
+rankingFile=phg/ranking_file.txt
+
+# Clustering method, upgma vs kmer
+clusteringMode=kmer_assembly
+
+# Kmer parameter
+kmerSize=7

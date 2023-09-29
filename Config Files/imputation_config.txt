@@ -1,0 +1,110 @@
+## Documentation: https://bitbucket.org/bucklerlab/practicalhaplotypegraph/wiki/UserInstructions/ImputeWithPHG_main.md
+
+# Conistent across configs
+host=localHost
+user=sqlite
+password=sqlite
+DB=/shares/baxter/users/tkosfeld/working_PHG/phg/test_db.db
+DBtype=sqlite
+
+# Default liquidbase output
+liquibaseOutdir=phg/outputDir
+
+# Path to GVCF files
+localGVCFFolder=phg/inputDir/loadDB/gvcf/
+# Path to GVCF files
+HaplotypeGraphBuilderPlugin.localGVCFFolder=phg/inputDir/loadDB/gvcf/
+
+# Only haplotypes associated with this method will be used to construct the pangenome 
+pangenomeHaplotypeMethod=consensus
+
+# Directory to output pangenome
+pangenomeDir=phg/outputDir/pangenome
+
+# Default index params
+indexKmerLength=21
+indexWindowSize=11
+indexNumberBases=90G
+
+#--- Used for mapping reads
+# Input format
+inputType=fastq
+
+# Read method assignment
+readMethod=gbs_data
+
+# File keymap path
+keyFile=phg/readMapping_key_file.txt
+
+# Path to fastq files to be imputed
+fastqDir=phg/inputDir/imputation/fastq/
+#samDir=phg/inputDir/imputation/sam/
+
+# Low Meme Mode is recomended by BucklerLab
+lowMemMode=true
+
+# Allowed deviation from refrange
+maxRefRangeErr=0.45
+
+# User preference
+outputSecondaryStats=false
+maxSecondary=20
+
+# This is an extremely important parameter, reference BucklerLab paper for details
+fParameter=f5000,6000
+
+# Whatever command is necessary to start base minimap goes here
+minimapLocation=minimap2
+
+#--- Used for path finding
+
+# What haplotype methods to use for path finding
+pathHaplotypeMethod=consensus
+pathMethod=consensus
+
+# Overwrite old imputation T/F
+overwrite=true
+
+# Node/Read restraints
+maxNodes=100000
+maxReads=1000000
+
+# Setting minReads to 0 gives WGS imputation
+minReads=0
+minTaxa=1
+
+# Minimum transition probability
+minTransitionProb=0.001
+
+# Multithreading
+numThreads=15
+
+# These are all default
+probCorrect=0.99
+removeEqual=true
+splitNodes=true
+splitProb=0.99
+usebf=false
+maxParents = 1000000
+minCoverage = 1.0
+#parentOutputFile = *optional*
+
+#   used by haploid path finding only
+usebf=false
+minP=0.8
+
+#   used by diploid path finding only
+maxHap=11
+maxReadsKB=100
+algorithmType=efficient
+
+#--- Used to output a vcf file for pathMethod
+
+#For post processing only, path to output SNPs
+outVcfFile=phg/complete_ZeaSyn_output.vcf
+
+# Use to position limit SNP output
+positions=phg/SNP55K_maize282_AGPv5_20200220.vcf
+
+# Reference fasta path for VCF output
+referenceFasta=phg/inputDir/reference/Ref.fa
