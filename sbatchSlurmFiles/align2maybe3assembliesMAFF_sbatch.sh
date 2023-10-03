@@ -6,4 +6,5 @@
 #SBATCH -t 24:00:00
 #SBATCH --partition=bigmemm
 
+module load
 apptainer run phg40.simg /tassel-5-standalone/run_pipeline.pl -configParameters phg/maff_from_anchorwave_config.txt -AssemblyMAFFromAnchorWavePlugin -endPlugin
