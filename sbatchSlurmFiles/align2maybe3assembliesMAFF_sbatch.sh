@@ -1,6 +1,6 @@
 #!/bin/bash -l
 #SBATCH -D /home/vale878/
-#SBATCH -J bob
+#SBATCH -J phgTwoToThreeAssemblyMAFFTest
 #SBATCH -o /home/vale878/phgSbatchLogs/out-%A_PHGanchorwave.txt
 #SBATCH -e /home/vale878/phgSbatchLogs/error-%A_PHGanchorwave.txt
 #SBATCH -t 24:00:00
