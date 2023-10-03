@@ -1,5 +1,4 @@
 AssemblyServerDir	AssemblyGenomeFasta	AssemblyDir	AssemblyFasta	AssemblyDBName	Description
 #vale878:phg/inputDir/assemblies	JRIAL3A_pseudo.fasta	phg/inputDir/assemblies	JRIAL3A_pseudo.fasta	JRIAL3A_pseudo	Teosin F1 pseudogenome with B73 foundation
-phg/inputDir/assemblies/  Zm-CML103-REFERENCE-NAM-1.0.fa /phg/inputDir/assemblies/  Zm-CML103-REFERENCE-NAM-1.0.fa Zm-CML103-REFERENCE-NAM-1.0  CML103 NAM parent        
-phg/inputDir/assemblies/  Zm-Ki3-REFERENCE-NAM-1.0.fa  /phg/inputDir/assemblies/ Zm-Ki3-REFERENCE-NAM-1.0.fa  Zm-Ki3-REFERENCE-NAM-1.0  Ki3 NAM parent
-
+/phg/inputDir/assemblies/	Zm-CML103-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-CML103-REFERENCE-NAM-1.0.fa	Zm-CML103-REFERENCE-NAM-1.0	CML103 NAM parent
+/phg/inputDir/assemblies/	Zm-Ki3-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-Ki3-REFERENCE-NAM-1.0.fa	Zm-Ki3-REFERENCE-NAM-1.0	Ki3 NAM parent
