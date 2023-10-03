@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH -D /home/vale878/phg/
+#SBATCH -D /home/vale878/
 #SBATCH -J bob
 #SBATCH -o /home/vale878/phgSbatchLogs/out-%A_PHGanchorwave.txt
 #SBATCH -e /home/vale878/phgSbatchLogs/error-%A_PHGanchorwave.txt
