@@ -17,7 +17,7 @@ outputDir=phg/inputDir/assemblies/maff
 keyFile=phg/AssemblyMAFFromAnchorWavePlugin_keyfile.txt
 
 # Gff3 file for the reference genome
-gffFile=phg/inputDir/reference/Ref.gff3
+gffFile=phg/inputDir/reference/Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1.gff3
 
 # Reference genome path
-refFasta=phg/inputDir/reference/Ref.fa
+refFasta=phg/inputDir/reference/Zm-B73-REFERENCE-NAM-5.0.fa
