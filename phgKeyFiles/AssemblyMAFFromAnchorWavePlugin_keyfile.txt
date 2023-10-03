@@ -1,0 +1,2 @@
+AssemblyServerDir	AssemblyGenomeFasta	AssemblyDir	AssemblyFasta	AssemblyDBName	Description
+irods:phg/inputDir/assemblies	JRIAL3A_pseudo.fasta	phg/inputDir/assemblies	JRIAL3A_pseudo.fasta	JRIAL3A_pseudo	Teosin F1 pseudogenome with B73 foundation
