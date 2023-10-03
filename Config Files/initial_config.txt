@@ -10,11 +10,11 @@ DBtype=sqlite
 
 # Load genome intervals parameters
 
-# Reference path
-referenceFasta=phg/inputDir/reference/Ref.fa
+# Reference path... Note: I read in one of the papers that the ref cannot be gzipped
+referenceFasta=phg/inputDir/reference/Zm-B73-REFERENCE-NAM-5.0.fa
 
 # Bedfile used to specify reference ranges
-anchors=phg/inputDir/reference/anchors.bed
+anchors=phg/inputDir/reference/B73v5_genes.bed
 
 # Keyfile data storing data for genomes to found PHG
 genomeData=phg/inputDir/reference/load_genome_data.txt
