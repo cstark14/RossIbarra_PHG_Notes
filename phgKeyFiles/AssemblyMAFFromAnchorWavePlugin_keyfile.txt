@@ -1,2 +1,5 @@
-AssemblyServerDir	AssemblyGenomeFasta	AssemblyDir	AssemblyFasta	AssemblyDBName	Description
-irods:phg/inputDir/assemblies	JRIAL3A_pseudo.fasta	phg/inputDir/assemblies	JRIAL3A_pseudo.fasta	JRIAL3A_pseudo	Teosin F1 pseudogenome with B73 foundation
+#AssemblyServerDir	AssemblyGenomeFasta	AssemblyDir	AssemblyFasta	AssemblyDBName	Description
+#vale878:phg/inputDir/assemblies	JRIAL3A_pseudo.fasta	phg/inputDir/assemblies	JRIAL3A_pseudo.fasta	JRIAL3A_pseudo	Teosin F1 pseudogenome with B73 foundation
+https://download.maizegdb.org/Zm-CML103-REFERENCE-NAM-1.0/  Zm-CML103-REFERENCE-NAM-1.0.fa.gz /phg/inputDir/assemblies/  Zm-CML103-REFERENCE-NAM-1.0.fa Zm-CML103-REFERENCE-NAM-1.0  CML103 NAM parent        
+https://download.maizegdb.org/Zm-Ki3-REFERENCE-NAM-1.0/  Zm-Ki3-REFERENCE-NAM-1.0.fa.gz  /phg/inputDir/assemblies/ Zm-Ki3-REFERENCE-NAM-1.0.fa.gz  Zm-Ki3-REFERENCE-NAM-1.0  Ki3 NAM parent
+
