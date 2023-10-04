@@ -3,7 +3,7 @@
 #SBATCH -J debuggingMinimapKill
 #SBATCH -o /home/vale878/out-%A_minimap2.txt
 #SBATCH -e /home/vale878/rror-%A_minimap2.txt
-#SBATCH -t 24:00:00
+#SBATCH -t 04:00
 #SBATCH --partition=bigmemm
 
 module load minimap2
