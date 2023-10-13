@@ -11,13 +11,8 @@ Those values will be added to your environment file (for use by
 other i-commands) if the login succeeds.
 
 Enter your current iRODS password:
-vale878@farm:~/phgFromMaizePaper$ iget -PT /iplant/home/shared/panzea/panGenome/PHG_db_maize .
-ERROR: getCollUtil: -r option must be used for getting ./PHG_db_maize collection
-ERROR: getUtil: get error for ./PHG_db_maize status = -318000 USER_INPUT_OPTION_ERR
-vale878@farm:~/phgFromMaizePaper$ iget -rPT /iplant/home/sha
-red/panzea/panGenome/PHG_db_maize .
 
-vale878@farm:~/phgFromMaizePaper$ iget -rPT /iplant/home/shared/panzea/panGenome/PHG_db_maize/phg_v5Assemblies_20200608.db .
+vale878@farm:~/phgFromMaizePaper$ iget -PT /iplant/home/shared/panzea/panGenome/PHG_db_maize/phg_v5Assemblies_20200608.db .
 0/1 -  0.00% of files done   0.000/28903.600 MB -  0.00% of file sizes done
 Processing phg_v5Assemblies_20200608.db - 28903.600 MB   2023-10-12.20:37:31
 phg_v5Assemblies_20200608.db - 599.986/28903.600 MB -  2.08% done   2023-10-12.20:37:46
