@@ -6,7 +6,7 @@ Repository for notes and config files for constructing a Zea Mays practical hapl
   - Each config file corresponds to a specific command stores within the pipeline bash file, with each parameter annotated by TKosfeld and added to by CStark.
 
 First maize paper has their PHG available at:
-[CyVerse Data Store file path*]:/iplant/home/shared/panzea/panGenome/PHG_db_maize
+[CyVerse Data Store file path*]:/iplant/home/shared/panzea/panGenome/PHG_db_maize/phg_v5Assemblies_20200608.db
 
 specify -c for cpu or -mem for mem
 -c 40 but run 20
