@@ -1,2 +1,2 @@
-Genotype	Hapnumber	Dataline	Ploidy	GenePhased	ChromPhased	Confidence	Method	MethodDetails	gvcfServerPath
-B73Ref	0	B73 from agpv5	1	FALSE	FALSE	1	method2ref	Anchors from v5 gff gene coordinates.	localhost;/group/jrigrp11/cstark/phg/inputDir/align/gvcfs/
+Genotype	Hapnumber	Dataline	Ploidy	Reference	GenePhased	ChromPhased	Confidence	Method	MethodDetails	gvcfServerPath
+B73Ref	0	B73 from agpv5	1	phg/inputDir/reference/Zm-B73-REFERENCE-NAM-5.0.fa	FALSE	FALSE	1	method2ref	Anchors from v5 gff gene coordinates.	localhost;/group/jrigrp11/cstark/phg/inputDir/align/gvcfs/
