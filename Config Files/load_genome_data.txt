@@ -1,0 +1,2 @@
+Genotype	Hapnumber	Dataline	ploidy	genesPhased	chromsPhased	confidence	Method	MethodDetails	gvcfServerPath
+B73Ref	0	B73 from agpv5	1	false	false	1	method2ref	Anchors from v4 gff gene coordinates.	localhost;/home/tkosfeld/new_phg/phg/inputDir/align/gvcfs/
