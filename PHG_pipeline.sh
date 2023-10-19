@@ -19,9 +19,8 @@ apptainer run phg16.simg /tassel-5-standalone/run_pipeline.pl -debug -MakeDefaul
 # Initial configuration of PHG. It is extremely vital that this command completes safely.
 # - The foundational reference genome haplotypes should be loaded after this step.
 # - Beware of a very common error, if the reference genome is already compressed this step will throw an error. Easiest solution is to remove and compressed version of the reference.
-apptainer run phg16.simg /tassel-5-standalone/run_pipeline.pl -Xmx100G -debug -configParameters phg/initial_config.txt -MakeInitialPHGDBPipelinePlugin -endPlugin
-# apptainer run phg16.simg /tassel-5-standalone/run_pipeline.pl -Xmx100G -debug -configParameters RossIbarra_PHG_Notes/configFiles/initial_config.txt -MakeInitialPHGDBPipelinePlugin -endPlugin
-
+#apptainer run phg16.simg /tassel-5-standalone/run_pipeline.pl -Xmx100G -debug -configParameters phg/initial_config.txt -MakeInitialPHGDBPipelinePlugin -endPlugin
+apptainer run phg16.simg LoadGenomeIntervals.sh initial_config.txt Zm-B73-REFERENCE-NAM-5.0.fa B73v5_genes.bed load_genome_data.txt "localhost:phg/maizeNamTeocinte_phg16.db" true
 
 # First alignment step necessary to create GVCF files from desired genomes. If you can create or aquire bgzipped files you can proceed to CreateHaplotypesFromGVCF.
 apptainer run phg16.simg /tassel-5-standalone/run_pipeline.pl -configParameters phg/maff_from_anchorwave_config.txt -AssemblyMAFFromAnchorWavePlugin -endPlugin
