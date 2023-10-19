@@ -20,6 +20,7 @@ apptainer run phg16.simg /tassel-5-standalone/run_pipeline.pl -debug -MakeDefaul
 # - The foundational reference genome haplotypes should be loaded after this step.
 # - Beware of a very common error, if the reference genome is already compressed this step will throw an error. Easiest solution is to remove and compressed version of the reference.
 apptainer run phg16.simg /tassel-5-standalone/run_pipeline.pl -Xmx100G -debug -configParameters phg/initial_config.txt -MakeInitialPHGDBPipelinePlugin -endPlugin
+# apptainer run phg16.simg /tassel-5-standalone/run_pipeline.pl -Xmx100G -debug -configParameters RossIbarra_PHG_Notes/configFiles/initial_config.txt -MakeInitialPHGDBPipelinePlugin -endPlugin
 
 
 # First alignment step necessary to create GVCF files from desired genomes. If you can create or aquire bgzipped files you can proceed to CreateHaplotypesFromGVCF.
