@@ -29,3 +29,4 @@ refServerPath=localhost;phg/inputDir/reference/
 outputDir=phg/outputDir
 liquibaseOutdir=phg/outputDir
 lovalGVCFFolder=phg/inputDir/reference
+#
