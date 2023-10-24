@@ -1,15 +1,17 @@
 #!/bin/bash
 
-## This is a way of catalouging all apptainer commands that go into preproccessing, constructing, and making use of a PHG.
+## This is a way of catalouging all singularity commands that go into preproccessing, constructing, and making use of a PHG.
 ## I would not recomend running all of these commands at once, especially due to the significant logging output resulting from each command.
 
 ## General command syntax:
-## - phg16.simg is the apptainer image file queried in apptainer commands. Everything following is a PHG command, Tassel 5 is the pipeline stored in the apptainer image.
+## - phg16.simg is the singularity image file queried in singularity commands. Everything following is a PHG command, Tassel 5 is the pipeline stored in the singularity image.
 ## - Config files following -configParameters are often extremely complicated and will come with their own annotation.
 ## - At certain points in this pipeline the PHG database will be irrevocably changed, I would strongly recomend archiving versions of your database following loading haplotypes from GVCF files, creating consensus haplotypes, and after imputing.
 
 ### getting phg into UCD Farm HPC
 module load apptainer
+module load conda
+conda build -n singularity -c conda-forge singularity
 singularity build phg16.simg docker://maizegenetics/phg:0.0.40
 
 # Creation of default directory structure. Only needs to be run once.
@@ -17,6 +19,7 @@ singularity build phg16.simg docker://maizegenetics/phg:0.0.40
 singularity run -B /group/jrigrp11/cstark/:/mnt --pwd /mnt phg16.simg /tassel-5-standalone/run_pipeline.pl -debug -MakeDefaultDirectoryPlugin
  -workingDir phg -endPlugin
 
+#### https://stackoverflow.com/questions/65642199/difference-between-working-directory-of-docker-and-singularity
 # Initial configuration of PHG. It is extremely vital that this command completes safely.
 # - The foundational reference genome haplotypes should be loaded after this step.
 # - Beware of a very common error, if the reference genome is already compressed this step will throw an error. Easiest solution is to remove and compressed version of the reference.
