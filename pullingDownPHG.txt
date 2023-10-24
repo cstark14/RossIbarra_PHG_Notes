@@ -1,0 +1,41 @@
+vale878@farm:~/phgFromMaizePaper$ module avail | grep 'irod'
+deprecated/irods-icommands/4.2.11 <L>
+vale878@farm:~/phgFromMaizePaper$ iinit
+One or more fields in your iRODS environment file (.irodsEnv) are
+missing; please enter them.
+Enter the host name (DNS) of the server to connect to:data.cyverse.org
+Enter the port number:1247
+Enter your irods user name:cstark14
+Enter your irods zone:iplant
+Those values will be added to your environment file (for use by
+other i-commands) if the login succeeds.
+
+Enter your current iRODS password:
+
+vale878@farm:~/phgFromMaizePaper$ iget -PT /iplant/home/shared/panzea/panGenome/PHG_db_maize/phg_v5Assemblies_20200608.db .
+0/1 -  0.00% of files done   0.000/28903.600 MB -  0.00% of file sizes done
+Processing phg_v5Assemblies_20200608.db - 28903.600 MB   2023-10-12.20:37:31
+phg_v5Assemblies_20200608.db - 599.986/28903.600 MB -  2.08% done   2023-10-12.20:37:46
+ERROR: rcPartialDataGet: toWrite 4194304, bytesWritten 0 status = -27122 SYS_COPY_LEN_ERR, Disk quota exceeded
+
+       1645394        20      1645374    1% /run/user/1804235
+vale878@farm:~/phgFromMaizePaper$ df -i | less
+vale878@farm:~/phgFromMaizePaper$ df -i | less
+vale878@farm:~/phgFromMaizePaper$ df -i | grep "vale"
+df: /home/dguan: Stale file handle
+df: /home/jrs: Stale file handle
+df: /home/cpw: Stale file handle
+df: /home/wajinki: Stale file handle
+df: /home/zhypan: Stale file handle
+df: /home/ckern: Stale file handle
+nas-4-1-ib:/nas-4-1/home/vale878
+           483       483            0  100% /home/vale878
+vale878@farm:~/phgFromMaizePaper$ df -i | head -1
+df: /home/dguan: Stale file handle
+df: /home/jrs: Stale file handle
+df: /home/cpw: Stale file handle
+df: /home/wajinki: Stale file handle
+df: /home/zhypan: Stale file handle
+df: /home/ckern: Stale file handle
+Filesystem
+        Inodes     IUsed        IFree IUse% Mounted on
