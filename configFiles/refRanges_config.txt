@@ -1,0 +1,35 @@
+## https://bitbucket.org/bucklerlab/practicalhaplotypegraph/wiki/UserInstructions/MakeInitialPHGDBPipeline.md
+
+
+# Uniform across config
+host=localHost
+user=sqlite
+password=sqlite
+DB=phg/maizeNamTeocinte_phg16.db
+DBtype=sqlite
+
+# Load genome intervals parameters
+
+# Reference path... Note: I read in one of the papers that the ref cannot be gzipped
+referenceFasta=phg/inputDir/reference/Zm-B73-REFERENCE-NAM-5.0.fa
+ref=phg/inputDir/reference/Zm-B73-REFERENCE-NAM-5.0.fa
+
+# Bedfile used to specify reference ranges
+IntervalsFile=phg/inputDir/reference/B73v5_genes.bed
+generatedFile=phg/inputDir/reference/B73v5_genes_noOverlaps.bed
+mergeOverlaps=true
+
+
+# Keyfile data storing data for genomes to found PHG
+#genomeData=phg/load_genome_data.txt
+genomeData=phg/inputDir/reference/load_genome_data.txt
+
+# Default, mostly unused
+refServerPath=localhost;phg/inputDir/reference/
+
+#liquibase results output directory, general output directory
+# Basic for default directory structure
+outputDir=phg/outputDir
+liquibaseOutdir=phg/outputDir
+lovalGVCFFolder=phg/inputDir/reference
+#
