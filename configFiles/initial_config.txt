@@ -15,7 +15,8 @@ referenceFasta=phg/inputDir/reference/Zm-B73-REFERENCE-NAM-5.0.fa
 ref=phg/inputDir/reference/Zm-B73-REFERENCE-NAM-5.0.fa
 
 # Bedfile used to specify reference ranges
-anchors=phg/inputDir/reference/B73v5_genes.bed
+#anchors=phg/inputDir/reference/B73v5_genes.bed
+anchors=phg/inputDir/reference/B73v5_genes_noOverlaps.bed
 
 # Keyfile data storing data for genomes to found PHG
 #genomeData=phg/load_genome_data.txt

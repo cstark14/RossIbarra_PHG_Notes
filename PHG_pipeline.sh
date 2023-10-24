@@ -19,6 +19,9 @@ singularity build phg16.simg docker://maizegenetics/phg:0.0.40
 singularity run -B /group/jrigrp11/cstark/:/mnt --pwd /mnt phg16.simg /tassel-5-standalone/run_pipeline.pl -debug -MakeDefaultDirectoryPlugin
  -workingDir phg -endPlugin
 
+### convert raw bed gene file to noOverlap
+singularity run -B /group/jrigrp11/cstark/:/mnt --pwd /mnt phg16.simg /tassel-5-standalone/run_pipeline.pl -Xmx50G -debug -CreateValidIntervalsFilePlugin -intervalsFile phg/inputDir/reference/B73v5_genes.bed -referenceFasta phg/inputDir/reference/Zm-B73-REFERENCE-NAM-5.0.fa -mergeOverlaps true -generatedFile phg/inputDir/reference/B73v5_genes_noOverlaps.bed -mergeOverlaps true -endPlugin > plugin_output.txt
+
 #### https://stackoverflow.com/questions/65642199/difference-between-working-directory-of-docker-and-singularity
 # Initial configuration of PHG. It is extremely vital that this command completes safely.
 # - The foundational reference genome haplotypes should be loaded after this step.
