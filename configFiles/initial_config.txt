@@ -18,8 +18,8 @@ ref=phg/inputDir/reference/Zm-B73-REFERENCE-NAM-5.0.fa
 anchors=phg/inputDir/reference/B73v5_genes.bed
 
 # Keyfile data storing data for genomes to found PHG
-genomeData=phg/load_genome_data.txt
-#genomeData=phg/inputDir/reference/load_genome_data.txt
+#genomeData=phg/load_genome_data.txt
+genomeData=phg/inputDir/reference/load_genome_data.txt
 
 # Default, mostly unused
 refServerPath=localhost;phg/inputDir/reference/
