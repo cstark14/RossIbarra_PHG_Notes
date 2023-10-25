@@ -26,6 +26,7 @@ singularity run -B /group/jrigrp11/cstark/:/mnt --pwd /mnt phg16.simg /tassel-5-
 # Initial configuration of PHG. It is extremely vital that this command completes safely.
 # - The foundational reference genome haplotypes should be loaded after this step.
 # - Beware of a very common error, if the reference genome is already compressed this step will throw an error. Easiest solution is to remove and compressed version of the reference.
+
 singularity run -B /group/jrigrp11/cstark/:/mnt --pwd /mnt phg16.simg /tassel-5-standalone/run_pipeline.pl -Xmx100G -debug -configParameters phg/initial_config.txt -MakeInitialPHGDBPipelinePlugin -endPlugin
 
 
