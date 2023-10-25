@@ -8,7 +8,7 @@ DB=phg/maizeNamTeocinte_phg16.db
 DBtype=sqlite
 
 # Multithreading
-numThreads=2
+numThreads=4
 
 # Path to output maff files
 outputDir=phg/inputDir/assemblies/maff

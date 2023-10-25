@@ -1,29 +1,29 @@
 AssemblyServerDir	AssemblyGenomeFasta	AssemblyDir	AssemblyFasta	AssemblyDBName	Description
-/phg/inputDir/assemblies/	Zm-CML103-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-CML103-REFERENCE-NAM-1.0.fa	Zm-CML103-REFERENCE-NAM-1.0	CML103 NAM parent
-/phg/inputDir/assemblies/	Zm-Ki3-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-Ki3-REFERENCE-NAM-1.0.fa	Zm-Ki3-REFERENCE-NAM-1.0	Ki3 NAM parent
-localhost;phg/inputDir/assemblies/	Zm-B73_AB10-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-B73_AB10-REFERENCE-NAM-1.0.fa	Zm-B73_AB10-REFERENCE-NAM-1.0	Zm-B73_AB10 NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-B97-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-B97-REFERENCE-NAM-1.0.fa	Zm-B97-REFERENCE-NAM-1.0	Zm-B97 NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-CML103-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-CML103-REFERENCE-NAM-1.0.fa	Zm-CML103-REFERENCE-NAM-1.0	Zm-CML103 NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-CML228-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-CML228-REFERENCE-NAM-1.0.fa	Zm-CML228-REFERENCE-NAM-1.0	Zm-CML228 NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-CML247-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-CML247-REFERENCE-NAM-1.0.fa	Zm-CML247-REFERENCE-NAM-1.0	Zm-CML247 NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-CML277-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-CML277-REFERENCE-NAM-1.0.fa	Zm-CML277-REFERENCE-NAM-1.0	Zm-CML277 NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-CML322-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-CML322-REFERENCE-NAM-1.0.fa	Zm-CML322-REFERENCE-NAM-1.0	Zm-CML322 NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-CML333-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-CML333-REFERENCE-NAM-1.0.fa	Zm-CML333-REFERENCE-NAM-1.0	Zm-CML333 NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-CML52-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-CML52-REFERENCE-NAM-1.0.fa	Zm-CML52-REFERENCE-NAM-1.0	Zm-CML52 NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-CML69-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-CML69-REFERENCE-NAM-1.0.fa	Zm-CML69-REFERENCE-NAM-1.0	Zm-CML69 NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-HP301-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-HP301-REFERENCE-NAM-1.0.fa	Zm-HP301-REFERENCE-NAM-1.0	Zm-HP301 NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-Il14H-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-Il14H-REFERENCE-NAM-1.0.fa	Zm-Il14H-REFERENCE-NAM-1.0	Zm-Il14H NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-Ki11-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-Ki11-REFERENCE-NAM-1.0.fa	Zm-Ki11-REFERENCE-NAM-1.0	Zm-Ki11 NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-Ki3-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-Ki3-REFERENCE-NAM-1.0.fa	Zm-Ki3-REFERENCE-NAM-1.0	Zm-Ki3 NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-Ky21-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-Ky21-REFERENCE-NAM-1.0.fa	Zm-Ky21-REFERENCE-NAM-1.0	Zm-Ky21 NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-M162W-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-M162W-REFERENCE-NAM-1.0.fa	Zm-M162W-REFERENCE-NAM-1.0	Zm-M162W NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-M37W-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-M37W-REFERENCE-NAM-1.0.fa	Zm-M37W-REFERENCE-NAM-1.0	Zm-M37W NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-Mo18W-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-Mo18W-REFERENCE-NAM-1.0.fa	Zm-Mo18W-REFERENCE-NAM-1.0	Zm-Mo18W NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-Ms71-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-Ms71-REFERENCE-NAM-1.0.fa	Zm-Ms71-REFERENCE-NAM-1.0	Zm-Ms71 NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-NC350-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-NC350-REFERENCE-NAM-1.0.fa	Zm-NC350-REFERENCE-NAM-1.0	Zm-NC350 NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-NC358-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-NC358-REFERENCE-NAM-1.0.fa	Zm-NC358-REFERENCE-NAM-1.0	Zm-NC358 NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-Oh43-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-Oh43-REFERENCE-NAM-1.0.fa	Zm-Oh43-REFERENCE-NAM-1.0	Zm-Oh43 NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-Oh7B-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-Oh7B-REFERENCE-NAM-1.0.fa	Zm-Oh7B-REFERENCE-NAM-1.0	Zm-Oh7B NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-P39-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-P39-REFERENCE-NAM-1.0.fa	Zm-P39-REFERENCE-NAM-1.0	Zm-P39 NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-Tx303-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-Tx303-REFERENCE-NAM-1.0.fa	Zm-Tx303-REFERENCE-NAM-1.0	Zm-Tx303 NAM Parent Ref Assembly
-localhost;phg/inputDir/assemblies/	Zm-Tzi8-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies/	Zm-Tzi8-REFERENCE-NAM-1.0.fa	Zm-Tzi8-REFERENCE-NAM-1.0	Zm-Tzi8 NAM Parent Ref Assembly
+/phg/inputDir/assemblies	Zm-CML103-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-CML103-REFERENCE-NAM-1.0.fa	Zm-CML103-REFERENCE-NAM-1.0	CML103 NAM parent
+/phg/inputDir/assemblies	Zm-Ki3-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-Ki3-REFERENCE-NAM-1.0.fa	Zm-Ki3-REFERENCE-NAM-1.0	Ki3 NAM parent
+localhost;phg/inputDir/assemblies	Zm-B73_AB10-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-B73_AB10-REFERENCE-NAM-1.0.fa	Zm-B73_AB10-REFERENCE-NAM-1.0	Zm-B73_AB10 NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-B97-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-B97-REFERENCE-NAM-1.0.fa	Zm-B97-REFERENCE-NAM-1.0	Zm-B97 NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-CML103-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-CML103-REFERENCE-NAM-1.0.fa	Zm-CML103-REFERENCE-NAM-1.0	Zm-CML103 NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-CML228-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-CML228-REFERENCE-NAM-1.0.fa	Zm-CML228-REFERENCE-NAM-1.0	Zm-CML228 NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-CML247-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-CML247-REFERENCE-NAM-1.0.fa	Zm-CML247-REFERENCE-NAM-1.0	Zm-CML247 NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-CML277-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-CML277-REFERENCE-NAM-1.0.fa	Zm-CML277-REFERENCE-NAM-1.0	Zm-CML277 NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-CML322-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-CML322-REFERENCE-NAM-1.0.fa	Zm-CML322-REFERENCE-NAM-1.0	Zm-CML322 NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-CML333-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-CML333-REFERENCE-NAM-1.0.fa	Zm-CML333-REFERENCE-NAM-1.0	Zm-CML333 NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-CML52-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-CML52-REFERENCE-NAM-1.0.fa	Zm-CML52-REFERENCE-NAM-1.0	Zm-CML52 NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-CML69-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-CML69-REFERENCE-NAM-1.0.fa	Zm-CML69-REFERENCE-NAM-1.0	Zm-CML69 NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-HP301-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-HP301-REFERENCE-NAM-1.0.fa	Zm-HP301-REFERENCE-NAM-1.0	Zm-HP301 NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-Il14H-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-Il14H-REFERENCE-NAM-1.0.fa	Zm-Il14H-REFERENCE-NAM-1.0	Zm-Il14H NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-Ki11-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-Ki11-REFERENCE-NAM-1.0.fa	Zm-Ki11-REFERENCE-NAM-1.0	Zm-Ki11 NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-Ki3-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-Ki3-REFERENCE-NAM-1.0.fa	Zm-Ki3-REFERENCE-NAM-1.0	Zm-Ki3 NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-Ky21-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-Ky21-REFERENCE-NAM-1.0.fa	Zm-Ky21-REFERENCE-NAM-1.0	Zm-Ky21 NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-M162W-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-M162W-REFERENCE-NAM-1.0.fa	Zm-M162W-REFERENCE-NAM-1.0	Zm-M162W NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-M37W-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-M37W-REFERENCE-NAM-1.0.fa	Zm-M37W-REFERENCE-NAM-1.0	Zm-M37W NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-Mo18W-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-Mo18W-REFERENCE-NAM-1.0.fa	Zm-Mo18W-REFERENCE-NAM-1.0	Zm-Mo18W NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-Ms71-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-Ms71-REFERENCE-NAM-1.0.fa	Zm-Ms71-REFERENCE-NAM-1.0	Zm-Ms71 NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-NC350-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-NC350-REFERENCE-NAM-1.0.fa	Zm-NC350-REFERENCE-NAM-1.0	Zm-NC350 NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-NC358-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-NC358-REFERENCE-NAM-1.0.fa	Zm-NC358-REFERENCE-NAM-1.0	Zm-NC358 NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-Oh43-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-Oh43-REFERENCE-NAM-1.0.fa	Zm-Oh43-REFERENCE-NAM-1.0	Zm-Oh43 NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-Oh7B-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-Oh7B-REFERENCE-NAM-1.0.fa	Zm-Oh7B-REFERENCE-NAM-1.0	Zm-Oh7B NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-P39-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-P39-REFERENCE-NAM-1.0.fa	Zm-P39-REFERENCE-NAM-1.0	Zm-P39 NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-Tx303-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-Tx303-REFERENCE-NAM-1.0.fa	Zm-Tx303-REFERENCE-NAM-1.0	Zm-Tx303 NAM Parent Ref Assembly
+localhost;phg/inputDir/assemblies	Zm-Tzi8-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-Tzi8-REFERENCE-NAM-1.0.fa	Zm-Tzi8-REFERENCE-NAM-1.0	Zm-Tzi8 NAM Parent Ref Assembly
