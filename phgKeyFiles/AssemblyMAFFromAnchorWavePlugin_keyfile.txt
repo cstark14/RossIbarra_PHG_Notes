@@ -1,6 +1,6 @@
 AssemblyServerDir	AssemblyGenomeFasta	AssemblyDir	AssemblyFasta	AssemblyDBName	Description
-/phg/inputDir/assemblies	Zm-CML103-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-CML103-REFERENCE-NAM-1.0.fa	Zm-CML103-REFERENCE-NAM-1.0	CML103 NAM parent
-/phg/inputDir/assemblies	Zm-Ki3-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-Ki3-REFERENCE-NAM-1.0.fa	Zm-Ki3-REFERENCE-NAM-1.0	Ki3 NAM parent
+#/phg/inputDir/assemblies	Zm-CML103-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-CML103-REFERENCE-NAM-1.0.fa	Zm-CML103-REFERENCE-NAM-1.0	CML103 NAM parent
+#/phg/inputDir/assemblies	Zm-Ki3-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-Ki3-REFERENCE-NAM-1.0.fa	Zm-Ki3-REFERENCE-NAM-1.0	Ki3 NAM parent
 localhost;phg/inputDir/assemblies	Zm-B73_AB10-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-B73_AB10-REFERENCE-NAM-1.0.fa	Zm-B73_AB10-REFERENCE-NAM-1.0	Zm-B73_AB10 NAM Parent Ref Assembly
 localhost;phg/inputDir/assemblies	Zm-B97-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-B97-REFERENCE-NAM-1.0.fa	Zm-B97-REFERENCE-NAM-1.0	Zm-B97 NAM Parent Ref Assembly
 localhost;phg/inputDir/assemblies	Zm-CML103-REFERENCE-NAM-1.0.fa	/phg/inputDir/assemblies	Zm-CML103-REFERENCE-NAM-1.0.fa	Zm-CML103-REFERENCE-NAM-1.0	Zm-CML103 NAM Parent Ref Assembly
