@@ -1,0 +1,23 @@
+## Documentation: https://bitbucket.org/bucklerlab/practicalhaplotypegraph/wiki/UserInstructions/CreatePHG_step2AssemblyAndWGSHaplotypes.md
+
+# Consistent across config
+host=localHost
+user=sqlite
+password=sqlite
+DB=phg/maizeNamTeocinte_phg16.db
+DBtype=sqlite
+
+# Multithreading
+numThreads=4
+
+# Path to output maff files
+outputDir=phg/inputDir/assemblies/maff
+
+# Keyfiles specifying targets for anchorwave
+keyFile=phg/AssemblyTziMAFFromAnchorWavePlugin_keyfile.txt
+
+# Gff3 file for the reference genome
+gffFile=phg/inputDir/reference/Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1.gff3
+
+# Reference genome path
+refFasta=phg/inputDir/reference/Zm-B73-REFERENCE-NAM-5.0.fa

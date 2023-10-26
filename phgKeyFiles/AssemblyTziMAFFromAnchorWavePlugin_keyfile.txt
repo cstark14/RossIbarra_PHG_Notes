@@ -1,0 +1,2 @@
+AssemblyServerDir	AssemblyGenomeFasta	AssemblyDir	AssemblyFasta	AssemblyDBName	Description
+phg/inputDir/assemblies	Zm-Tzi8-REFERENCE-NAM-1.0.fa	phg/inputDir/assemblies	Zm-Tzi8-REFERENCE-NAM-1.0.fa	Zm-Tzi8-REFERENCE-NAM-1.0	Zm-Tzi8 NAM Parent Ref Assembly
