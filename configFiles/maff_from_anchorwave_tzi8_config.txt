@@ -9,6 +9,7 @@ DBtype=sqlite
 
 # Multithreading
 numThreads=8
+threadsPerRun=8
 
 # Path to output maff files
 outputDir=phg/inputDir/assemblies/maff
