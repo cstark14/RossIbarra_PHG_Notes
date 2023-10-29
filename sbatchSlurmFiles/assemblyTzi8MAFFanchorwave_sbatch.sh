@@ -4,7 +4,7 @@
 #SBATCH -o /group/jrigrp11/cstark/phgSbatchLogs/out_assemblyTziMAFFanchorwave.txt
 #SBATCH -e /group/jrigrp11/cstark/phgSbatchLogs/error_assemblyTziMAFFanchorwave.txt
 #SBATCH -t 24:00:00
-#SBATCH --partition=high2
+#SBATCH --partition=bigmemh
 
 module load conda
 module load apptainer
