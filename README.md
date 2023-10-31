@@ -10,4 +10,4 @@ First maize paper has their PHG available at:
 
 specify -c for cpu or -mem for mem
 -c 40 but run 20
-conda create -n singularity -c conda-forge singularity=3.6.3
+conda create -n singularity -c conda-forge singularity squashfs-tools squashfuse
