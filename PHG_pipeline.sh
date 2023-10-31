@@ -40,6 +40,7 @@ singularity run -B /group/jrigrp11/cstark/:/mnt --pwd /mnt phg16.simg /tassel-5-
 #### qbigmem 512gb ram, give it 48 threads. Post on farm issues slack channel
 ########### --mem=MB                minimum amount of real memory  --mincpus=n (threads per node)
 # This is a very delicate process. For our work certain hardcoded elements in the CreateHaplotypesFromGVCF file made it necessary to pull the file from the singularity image and edit it. I would first try the syntax used by other commands but if your pathing is erroneous feel free to mirror our methods.
+sbatch --mem=524000 --mincpus=16 ../RossIbarra_PHG_Notes/sbatchSlurmFiles/combineChrGVCF_sbatch.sh
 singularity exec phg16.simg /shares/baxter/users/tkosfeld/working_PHG/CreateHaplotypesFromGVCF.groovy -config phg/gvcf_config.txt
 
 
