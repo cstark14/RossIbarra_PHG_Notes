@@ -9,7 +9,7 @@
 module load conda
 module load apptainer
 conda activate singularity
-singularity run -B /group/jrigrp11/cstark/:/mnt --pwd /mnt phg16.simg /tassel-5-standalone/run_pipeline.pl -Xmx400g -printMemoryUsage -configParameters phg/maff_from_anchorwave_tzi8_config.txt -AssemblyMAFFromAnchorWavePlugin -endPlugin
+singularity run -B /group/jrigrp11/cstark/:/mnt --pwd /mnt phg16.simg /tassel-5-standalone/run_pipeline.pl -Xmx400g -configParameters phg/maff_from_anchorwave_tzi8_config.txt -AssemblyMAFFromAnchorWavePlugin -endPlugin
 
 #singularity shell -B /group/jrigrp11/cstark/:/mnt --pwd /mnt phg16.simg /tassel-5-standalone/run_pipeline.pl -Xmx400g -printMemoryUsage -configParameters phg/maff_from_anchorwave_tzi8_config.txt -AssemblyMAFFromAnchorWavePlugin -endPlugin
 
