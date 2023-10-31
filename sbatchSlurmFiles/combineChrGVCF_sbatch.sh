@@ -12,7 +12,7 @@
 #SBATCH --mail-user=crstark@ucdavis.edu
 
 module load conda apptainer gatk
-java -Xmx200g -XX:ParallelGCThreads=10 -jar GatherVcfs \
+java -Xmx200g -XX:ParallelGCThreads=10 -jar gatk GatherVcfs \
 -I /phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_1.gvcf.gz \
 -I /phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_2.gvcf.gz \
 -I /phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_3.gvcf.gz \
