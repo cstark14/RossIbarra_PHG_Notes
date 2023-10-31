@@ -31,7 +31,8 @@ singularity run -B /group/jrigrp11/cstark/:/mnt --pwd /mnt phg16.simg /tassel-5-
 
 ### Tzi8 not in already created gVCF
 # First alignment step necessary to create GVCF files from desired genomes. If you can create or aquire bgzipped files you can proceed to CreateHaplotypesFromGVCF.
-singularity run -B /group/jrigrp11/cstark/:/mnt --pwd /mnt phg16.simg /tassel-5-standalone/run_pipeline.pl -configParameters phg/maff_from_anchorwave_config.txt -AssemblyMAFFromAnchorWavePlugin -endPlugin
+sbatch --mem=524000 --mincpus=16 ../RossIbarra_PHG_Notes/sbatchSlurmFiles/assemblyTzi8MAFFanchorwave_sbatch.sh
+singularity run -B /group/jrigrp11/cstark/:/mnt --pwd /mnt phg16.simg /tassel-5-standalone/run_pipeline.pl -Xms20g -Xmx400g -configParameters phg/maff_from_anchorwave_tzi8_config.txt -AssemblyMAFFromAnchorWavePlugin -endPlugin
 
 # Second alignment step taking maff files created previously and outputting to gvcf.
 #singularity run phg16.simg /tassel-5-standalone/run_pipeline.pl -Xmx100G -debug -configParameters phg/maft_to_gvcf_config.txt -MAFToGVCFPlugin -endPlugin
