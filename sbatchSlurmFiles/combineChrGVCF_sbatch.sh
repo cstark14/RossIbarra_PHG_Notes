@@ -13,15 +13,15 @@
 
 module load conda apptainer gatk
 java -Xmx200g -XX:ParallelGCThreads=10 -jar GatherVcfs \
--I /group/jrigrp11/cstark/phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_1.gvcf.gz \
--I /group/jrigrp11/cstark/phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_2.gvcf.gz \
--I /group/jrigrp11/cstark/phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_3.gvcf.gz \
--I /group/jrigrp11/cstark/phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_4.gvcf.gz \
--I /group/jrigrp11/cstark/phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_5.gvcf.gz \
--I /group/jrigrp11/cstark/phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_6.gvcf.gz \
--I /group/jrigrp11/cstark/phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_7.gvcf.gz \
--I /group/jrigrp11/cstark/phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_8.gvcf.gz \
--I /group/jrigrp11/cstark/phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_9.gvcf.gz \
--I /group/jrigrp11/cstark/phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_10.gvcf.gz \
--O /group/jrigrp11/cstark/phg/inputDir/loadDB/gvcf/gatkNAMnotTzi_B73v5_allChr.vcf.gz
-tabix /group/jrigrp11/cstark/phg/inputDir/loadDB/gvcf/gatkNAMnotTzi_B73v5_allChr.vcf.gz
+-I /phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_1.gvcf.gz \
+-I /phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_2.gvcf.gz \
+-I /phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_3.gvcf.gz \
+-I /phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_4.gvcf.gz \
+-I /phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_5.gvcf.gz \
+-I /phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_6.gvcf.gz \
+-I /phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_7.gvcf.gz \
+-I /phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_8.gvcf.gz \
+-I /phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_9.gvcf.gz \
+-I /phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_10.gvcf.gz \
+-O /phg/inputDir/loadDB/gvcf/gatkNAMnotTzi_B73v5_allChr.vcf.gz
+tabix /phg/inputDir/loadDB/gvcf/gatkNAMnotTzi_B73v5_allChr.vcf.gz
