@@ -18,7 +18,7 @@ module load conda apptainer gatk deprecated/java tabix bcftools
 
 #singularity run -B /group/jrigrp11/cstark/:/mnt --pwd /mnt phg16.simg java -Xmx200g -XX:ParallelGCThreads=10 -jar /share/apps/22.04/spack/spack-v0.19.1/opt/spack/linux-ubuntu22.04-x86_64_v2/gcc-11.3.0/gatk-4.2.6.1-xjwogmjj4lbik4vhwckg2lasbgx54sl7/bin/gatk-package-4.2.6.1-local.jar GatherVcfs \
 #gatk GatherVcfsCloud \
-bcftools concat -a -o phg/inputDir/loadDB/gvcf/gatkNAMnotTzi_B73v5_allChr.vcf.gz\
+bcftools concat -a -o phg/inputDir/loadDB/gvcf/gatkNAMnotTzi_B73v5_allChr.vcf.gz \
 phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_1.gvcf.gz \
 phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_2.gvcf.gz \
 phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_3.gvcf.gz \
