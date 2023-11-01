@@ -1,0 +1,14 @@
+minimap2 -x splice -t 2 -k 12 -a -p 0.4 -N20 /phg/inputDir/assemblies/Zm-CML103-REFERENCE-NAM-1.0.fa phg/inputDir/assemblies/maff/refCDS.fa
+
+anchorwave proali -i phg/inputDir/reference/Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1.gff3 -r phg/inputDir/reference/Zm-B73-REFERENCE-NAM-5.0.fa -as phg/inputDir/assemblies/maff/refCDS.fa -a phg/inputDir/assemblies/maff/Zm-B73_AB10-REFERENCE-NAM-1.0.sam -ar phg/inputDir/assemblies/maff/Zm-B73-REFERENCE-NAM-5.0.sam -s phg/inputDir/assemblies/Zm-B73_AB10-REFERENCE-NAM-1.0.fa -n phg/inputDir/assemblies/maff/Zm-B73_AB10-REFERENCE-NAM-1.0_Zm-B73-REFERENCE-NAM-5.0.anchorspro -R 1 -Q 1 -t 2 -o phg/inputDir/assemblies/maff/Zm-B73_AB10-REFERENCE-NAM-1.0.maf
+
+/phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_10.gvcf.gz
+
+
+First record in file file:///group/jrigrp11/cstark/phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_10.gvcf.gz is not after first record in previous file file:///group/jrigrp11/cstark/phg/inputDir/loadDB/gvcf/namNotTzi_perChr/gatkNAM_B73v5_9.gvcf.gz
+
+for file in *.vcf*; do
+  for sample in `bcftools query -l $file`; do
+    bcftools view -c1 -Oz -s $sample -o ${file/.vcf*/.$sample.vcf.gz} $file
+  done
+done
