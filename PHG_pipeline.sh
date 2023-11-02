@@ -40,9 +40,8 @@ singularity run -B /group/jrigrp11/cstark/:/mnt --pwd /mnt phg16.simg /tassel-5-
 #### qbigmem 512gb ram, give it 48 threads. Post on farm issues slack channel
 ########### --mem=MB                minimum amount of real memory  --mincpus=n (threads per node)
 # This is a very delicate process. For our work certain hardcoded elements in the CreateHaplotypesFromGVCF file made it necessary to pull the file from the singularity image and edit it. I would first try the syntax used by other commands but if your pathing is erroneous feel free to mirror our methods.
-sbatch --mem=524000 --mincpus=16 ../RossIbarra_PHG_Notes/sbatchSlurmFiles/combineChrGVCF_sbatch.sh
-singularity exec phg16.simg /shares/baxter/users/tkosfeld/working_PHG/CreateHaplotypesFromGVCF.groovy -config phg/gvcf_config.txt
-
+sbatch ../RossIbarra_PHG_Notes/sbatchSlurmFiles/combineChrGVCF_sbatch.sh
+singularity exec -B /group/jrigrp11/cstark/:/mnt --pwd /mnt phg16.simg phg/CreateHaplotypesFromGVCF.groovy -config phg/gvcf_config.txt
 
 # Creation of consensus haplotypes from already stored haplotypes. Keep in mind this is very parameter dependant. Also this long command is somewhat repetitive with specifications given the most recent config version.
 singularity exec phg16.simg /tassel-5-standalone/run_pipeline.pl -Xmx100G -debug -configParameters phg/consensus_config.txt -HaplotypeGraphBuilderPlugin -configFile phg/consensus_config.txt -methods method2ref:assembly_by_anchorwave -includeVariantContexts true -localGVCFFolder phg/inputDir/loadDB/gvcf/ -endPlugin -RunHapConsensusPipelinePlugin -referenceFasta phg/inputDir/reference/Ref.fa -dbConfigFile phg/consensus_config.txt -collapseMethod consensus -collapseMethodDetails assembly_by_anchorwave_to_consensus -rankingFile phg/ranking_file.txt -mxDiv 0.00001 -clusteringMode kmer_assembly -isTestMethod true -endPlugin
