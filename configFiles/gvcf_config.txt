@@ -4,7 +4,7 @@
 host=localHost
 user=sqlite
 password=sqlite
-DB=phg/test_db.db
+DB=phg/maizeNamTeocinte_phg16.db
 DBtype=sqlite
 
 # Multithreading params
@@ -14,7 +14,7 @@ numThreads=16
 referenceFasta=phg/inputDir/reference/Ref.fa
 
 # Reference Path
-LoadHaplotypesFromGVCFPlugin.referenceFasta=phg/inputDir/reference/Ref.fa
+LoadHaplotypesFromGVCFPlugin.referenceFasta=phg/inputDir/reference/Zm-B73-REFERENCE-NAM-5.0.fa
 
 # Path to wgs keyfile
 LoadHaplotypesFromGVCFPlugin.wgsKeyFile=phg/load_wgs_genome_key_file.txt
@@ -23,7 +23,7 @@ LoadHaplotypesFromGVCFPlugin.wgsKeyFile=phg/load_wgs_genome_key_file.txt
 LoadHaplotypesFromGVCFPlugin.gvcfDir=phg/inputDir/loadDB/gvcf/
 
 # Bedfile of haplotype reference ranges
-bedFile=phg/Haplotype_Ranges.bed
+bedFile=phg/B73v5_genes_noOverlaps.bed
 
 # Name to be associated with haplotypes added
 LoadHaplotypesFromGVCFPlugin.haplotypeMethodName=assembly_by_anchorwave
