@@ -1,0 +1,36 @@
+Command Failed: Error (login)
+Endpoint: farm.hpc.ucdavis.edu: /home (e00f65a1-e939-4a01-84e9-c3d61d52f7e5)
+Server: 128.120.146.1:443
+Message: Login Failed
+---
+Details: 530-Login incorrect. : GlobusError: v=1 c=LOGIN_DENIED
+530-Failure while contacting GCS Manager API.
+530 End.      
+
+
+Error listing directory '/%7Bserver_default%7D/' on endpoint 'e00f65a1-e939-4a01-84e9-c3d61d52f7e5': Command Failed: Error (list)
+Endpoint: farm.hpc.ucdavis.edu: /home (e00f65a1-e939-4a01-84e9-c3d61d52f7e5)
+Server: 128.120.146.1:443
+Command: MLSC
+Message: Fatal FTP Response
+---
+Details: 451-GlobusError: v=1 c=INTERNAL_ERROR
+451-GridFTP-Errno: 116
+451-GridFTP-Reason: System error in lstat
+451-GridFTP-Error-String: Stale file handle
+451 End.      
+
+
+
+
+
+
+Get PHG lines
+Get DH GBS test samples
+Can make fake hets from DH lines
+PHG same results if we put in 
+
+
+end of april, give QE committee written proposal beginning of april, draft beginning of March.
+Prelim results are good. 
+Rough outline January
