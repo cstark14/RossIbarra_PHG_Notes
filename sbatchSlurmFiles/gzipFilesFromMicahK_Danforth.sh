@@ -1,8 +1,8 @@
 #!/bin/bash -l
 #SBATCH -D /group/jrigrp11/cstark/filesFromMicahK_Danforth/
-#SBATCH -J downloadingFilesFromMicahDanforth
-#SBATCH -o /group/jrigrp11/cstark/filesFromMicahK_Danforth/out-%A_download.txt
-#SBATCH -e /group/jrigrp11/cstark/filesFromMicahK_Danforth/error-%A_download.txt
+#SBATCH -J gzipFilesFromMicahDanforth
+#SBATCH -o /group/jrigrp11/cstark/filesFromMicahK_Danforth/out-%A_gzip.txt
+#SBATCH -e /group/jrigrp11/cstark/filesFromMicahK_Danforth/error-%A_gzip.txt
 #SBATCH -t 24:00:00
 #SBATCH --partition=high2
 
