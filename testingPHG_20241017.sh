@@ -1,3 +1,5 @@
+srun -p bigmemh -t 2:00:00 --pty bash
+
 module load conda
 module load jdk
 conda activate PHG
@@ -6,10 +8,19 @@ export PATH="/group/jrigrp11/cstark/phg/bin:$PATH"
 ### post phg environment creation
 conda activate phgv2-conda
 
+
+
 ### kmer read mapping
+## ignoring micah's info
 phg map-kmers \
-    --hvcf-dir /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/vcf_dbs/hvcf_files \
+    --hvcf-dir /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/vcf_files \
     --kmer-index /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/vcf_files/kmerIndex.txt \
+    --key-file /group/jrigrp11/cstark/synDHfastqPHGmapped/ \
+    --output-dir /group/jrigrp11/cstark/synDHfastqPHGmapped/
+
+#### according to Micah: In the imputation workflows they use the set in phg_v2.4.8.162_ZeaSyn/output/vcf_files. kmer index command wouldnt be needed
+phg map-kmers \
+    --hvcf-dir /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/vcf_files \
     --key-file /group/jrigrp11/cstark/synDHfastqPHGmapped/ \
     --output-dir /group/jrigrp11/cstark/synDHfastqPHGmapped/
 

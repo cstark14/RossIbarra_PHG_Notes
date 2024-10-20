@@ -1,1 +1,0 @@
-sampleName	filename	filename2
