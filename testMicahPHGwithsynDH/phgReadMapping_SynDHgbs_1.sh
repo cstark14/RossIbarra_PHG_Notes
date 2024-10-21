@@ -16,4 +16,4 @@ export JAVA_OPTS="-Xmx100g"
 phg map-kmers \
     --hvcf-dir /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/vcf_files \
     --key-file /group/jrigrp11/cstark/synDHfastqPHGmapped/fastqList1_phgMappingKeyFile \
-    --output-dir /group/jrigrp11/cstark/synDHfastqPHGmapped/ > mappingfastqList1_20241021.out 2> mappingfastqList1_20241021.err
+    --output-dir /group/jrigrp11/cstark/synDHfastqPHGmapped/ > /group/jrigrp11/cstark/mappingfastqList1_20241021.out 2> /group/jrigrp11/cstark/mappingfastqList1_20241021.err
