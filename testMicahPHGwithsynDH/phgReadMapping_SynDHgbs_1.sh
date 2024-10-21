@@ -5,7 +5,7 @@
 #SBATCH -e /group/jrigrp11/cstark/filesFromMicahK_Danforth/error-%A_gzip.txt
 #SBATCH -t 24:00:00
 #SBATCH --partition=high2
-#SBATCH --mem=100GB
+#SBATCH --mem=122880
 
 module load conda
 module load jdk
