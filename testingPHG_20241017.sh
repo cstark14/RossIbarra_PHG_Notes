@@ -29,6 +29,17 @@ phg map-kmers \
     --output-dir /group/jrigrp11/cstark/synDHfastqPHGmapped/ \
     --kmer-index /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/vcf_files/kmerIndex.txt \
     --diagnostic-mode > mappingSingleDHgbs_20241019.out
+### did not work. again killed even after setting java mem to 100 gbs,
+### diagnostic mnode did nothing. cool
+
+### trying with phg github examples
+phg map-kmers \
+    --hvcf-dir  \
+    --key-file  \
+    --output-dir /group/jrigrp11/cstark// \
+    --kmer-index  \
+    --diagnostic-mode > .out
+
 
 ### GBS reads here: /group/jrigrp10/synthetic_load/fastq_data/synDH_fastq
 
