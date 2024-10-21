@@ -1,2 +1,2 @@
 sampleName	filename
-ZeaSynDH_Trial1000:250459529_HHLVGBGXX_1_TCATAGT.fastq.gz	/group/jrigrp10/synthetic_load/fastq_data/synDH_fastqZeaSynDH_Trial1000:250459529_HHLVGBGXX_1_TCATAGT.fastq.gz
+ZeaSynDH_Trial1000:250459529_HHLVGBGXX_1_TCATAGT.fastq.gz	/group/jrigrp10/synthetic_load/fastq_data/synDH_fastq/ZeaSynDH_Trial1000:250459529_HHLVGBGXX_1_TCATAGT.fastq.gz
