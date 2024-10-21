@@ -1,13 +1,15 @@
-srun -p bigmemh -t 2:00:00 --pty bash
+srun -p high2 -t 2:00:00 --mem 122880 --pty bash
 
 module load conda
 module load jdk
-conda activate PHG
-export PATH="/group/jrigrp11/cstark/phg/bin:$PATH"
-export JAVA_OPTS="-Xmx100g"
+
+#### conda config --set solver libmamba
 
 ### post phg environment creation
-conda activate phgv2-conda
+#might not have to do the activate conda step
+#conda activate phgv2-conda
+export PATH="/group/jrigrp11/cstark/phg/bin:$PATH"
+export JAVA_OPTS="-Xmx100g"
 
 ### kmer read mapping
 ## ignoring micah's info
@@ -41,6 +43,18 @@ phg map-kmers \
     --output-dir phg_v2.4.8.162_ZeaSyn/output/read_mappings_all_default \
     --threads 16 \
     --diagnostic-mode
+
+### micah's code sub out keyfile
+phg map-kmers \
+    --hvcf-dir phg_v2.4.8.162_ZeaSyn/output/vcf_files \
+    --key-file ./phgMappingKeyFile_oneSampleNotGZipped.txt \
+    --output-dir phg_v2.4.8.162_ZeaSyn/output/read_mappings_all_default \
+    --threads 16 \
+    --diagnostic-mode
+### still doesnt work
+
+###trying to rebuild kmer index
+phg build-kmer-index --db-path phg_v2.4.8.162_ZeaSyn/vcf_dbs/ --hvcf-dir phg_v2.4.8.162_ZeaSyn/output/vcf_files/
 
 ### trying with phg github examples
 phg map-kmers \
