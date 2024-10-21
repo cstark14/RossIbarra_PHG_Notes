@@ -52,6 +52,7 @@ phg map-kmers \
     --threads 16 \
     --diagnostic-mode
 ### still doesnt work
+#### IT WAS STUPID BIGMEM ISSUE THE WHOLE TIME
 
 ###trying to rebuild kmer index
 phg build-kmer-index --db-path phg_v2.4.8.162_ZeaSyn/vcf_dbs/ --hvcf-dir phg_v2.4.8.162_ZeaSyn/output/vcf_files/
