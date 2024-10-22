@@ -57,13 +57,15 @@ phg map-kmers \
 ###trying to rebuild kmer index
 phg build-kmer-index --db-path phg_v2.4.8.162_ZeaSyn/vcf_dbs/ --hvcf-dir phg_v2.4.8.162_ZeaSyn/output/vcf_files/
 
-### trying with phg github examples
-phg map-kmers \
-    --hvcf-dir  \
-    --key-file  \
-    --output-dir /group/jrigrp11/cstark// \
-    --kmer-index  \
-    --diagnostic-mode > .out
+### Path finding
+phg find-paths \
+    --path-keyfile /group/jrigrp11/cstark/readMappedSynDHgbs_keyfile.txt \
+    --hvcf-dir /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/vcf_files \
+    --reference-genome /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/updated_assemblies/B73.fa \
+    --path-type haploid \
+    --output-dir /group/jrigrp11/cstark/synDH_vcfFilesImputed \
+    --out-parents-dir /group/jrigrp11/cstark/synDH_likelyAncestors
+
 
 
 ### GBS reads here: /group/jrigrp10/synthetic_load/fastq_data/synDH_fastq
