@@ -66,6 +66,9 @@ phg find-paths \
     --output-dir /group/jrigrp11/cstark/synDH_vcfFilesImputed \
     --out-parents-dir /group/jrigrp11/cstark/synDH_likelyAncestors
 
+#### Look to see if there are actually overlapping parent calls
+#### Look into collapsing regions of consensus
+
 
 
 ### GBS reads here: /group/jrigrp10/synthetic_load/fastq_data/synDH_fastq
