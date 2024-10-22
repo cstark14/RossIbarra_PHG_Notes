@@ -68,6 +68,7 @@ phg find-paths \
 
 #### Look to see if there are actually overlapping parent calls
 #### Look into collapsing regions of consensus
+#### Upload graphing to slack channel
 
 
 
