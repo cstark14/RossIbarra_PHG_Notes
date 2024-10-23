@@ -70,6 +70,16 @@ phg find-paths \
 #### Look into collapsing regions of consensus
 #### Upload graphing to slack channel
 
+### Path finding 0.9 prob
+phg find-paths \
+    --path-keyfile /group/jrigrp11/cstark/readMappedSynDHgbs_keyfile.txt \
+    --hvcf-dir /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/vcf_files \
+    --reference-genome /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/updated_assemblies/B73.fa \
+    --path-type haploid \
+    --output-dir /group/jrigrp11/cstark/synDH_vcfFilesImputedProbLikely0.9 \
+    --prob-correct=0.90 \
+    --out-parents-dir /group/jrigrp11/cstark/synDH_likelyAncestorsProbLikely0.9
+
 
 
 ### GBS reads here: /group/jrigrp10/synthetic_load/fastq_data/synDH_fastq
