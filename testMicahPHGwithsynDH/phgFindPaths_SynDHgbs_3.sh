@@ -18,6 +18,6 @@ phg find-paths \
     --hvcf-dir /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/vcf_files \
     --reference-genome /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/updated_assemblies/B73.fa \
     --path-type haploid \
-    --output-dir /group/jrigrp11/cstark/synDH_vcfFilesImputedProbLikely0.9 \
-    --prob-correct=0.90 \
-    --out-parents-dir /group/jrigrp11/cstark/synDH_likelyAncestorsProbLikely0.9 > /group/jrigrp11/cstark/synDH_likelyAncestorsProbLikely0.9/pathFinding3_prob0.90_20241023.out 2> /group/jrigrp11/cstark/synDH_likelyAncestorsProbLikely0.9/pathFinding3_prob0.90_20241023.err
+    --output-dir /group/jrigrp11/cstark/synDH_vcfFilesImputedProbLikely0.5 \
+    --prob-correct=0.50 \
+    --out-parents-dir /group/jrigrp11/cstark/synDH_likelyAncestorsProbLikely0.5 > /group/jrigrp11/cstark/synDH_likelyAncestorsProbLikely0.5/pathFinding3_prob0.50_20241023.out 2> /group/jrigrp11/cstark/synDH_likelyAncestorsProbLikely0.5/pathFinding3_prob0.50_20241023.err
