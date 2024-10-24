@@ -28,7 +28,7 @@ fromChatGPT <- function(){
     select(-group)##, -new_group)
 }
 
-currentSampleMappingImputedParents <- read_delim("testMicahPHGwithsynDH/examplesFromImputeParents/ZeaSynDH_Trial1100:250459604_HHLVGBGXX_1_GCGGATGT_readMapping.txt_imputed_parents.txt",
+currentSampleMappingImputedParents <- read_delim("ZeaSynDH_Trial1100_0.9accuracy_imputed_parents.txt",
                                                  delim = "\t", escape_double = FALSE, col_types = cols(sample2 = col_skip()), trim_ws = TRUE)
 combinedRegionParents <- currentSampleMappingImputedParents %>%
   filter(!startsWith(chrom,"scaf")) %>%
