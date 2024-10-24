@@ -80,7 +80,7 @@ phg find-paths \
     --prob-correct=0.90 \
     --out-parents-dir /group/jrigrp11/cstark/synDH_likelyAncestorsProbLikely0.9
 
-
+### Next step would be 0.5 prob.... then eventually x axis for gen map ohgut? instead of phys
 
 ### GBS reads here: /group/jrigrp10/synthetic_load/fastq_data/synDH_fastq
 
