@@ -1,12 +1,3 @@
-#### code to convert phys to gen positions using a gen map as a ref/frame
-#### Tips from Beibei/Paulo
-## Here are two tips I got from Paulo, which is very helpful for me: 
-#Some of the cM are negative so you have to add a scalar for every position for each chromosome. 
-#For example, for chr1 you would have to add 4.8 cM for every position and for chr2 you would add 3.6 cM
-## I found an error with the map at the end of chr2 where the position decreases while mapping units increase. 
-# Jeff and I aren't super sure what's happening there but it will cause recombination rates to be negative 
-# (which doesn't make sense). Every other chromosome is fine though
-
 library(tidyverse)
 library(dplyr)
 library(fANCOVA)
@@ -18,7 +9,8 @@ options(scipen=999)
 options(stringsAsFactors=FALSE)
 
 genMapFile <- "ogut_v5_from_paulo.map.txt"
-imputeParentsFile <- "~/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithsynDH/0.9mapAccuracy/ZeaSynDH_Trial10_0.9accuracy_imputed_parents.txt"
+trialNameForPlot <- "ZeaSynDH_Trial1100_mapAccuracy0.9"
+imputeParentsFile <- "~/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithsynDH/0.9mapAccuracy/ZeaSynDH_Trial1100_0.9accuracy_imputed_parents.txt"
 
 genMap <- read_delim(genMapFile, 
                      delim = "\t", escape_double = FALSE, 
@@ -27,13 +19,15 @@ genMap <- read_delim(genMapFile,
                      trim_ws = TRUE) %>% mutate(cm=round(cm,digits=3)) %>%
   filter("scaf" %notin% chr)
 imputeParents <- read_delim(imputeParentsFile, 
-                      delim = "\t", escape_double = FALSE, 
-                      col_types = cols(start = col_integer(), 
-                                       end = col_integer()), trim_ws = TRUE) %>%
+                            delim = "\t", escape_double = FALSE, 
+                            col_types = cols(start = col_integer(), 
+                                             end = col_integer()), trim_ws = TRUE) %>%
   mutate(chr=gsub("chr","",chrom)) %>%
-  filter(!startsWith(chrom,"scaf"))
+  filter(!startsWith(chrom,"scaf")) %>%
+  mutate(chrStart = paste0(chr,"_",start)) %>%
+  mutate(chrEnd = paste0(chr,"_",end))
 meltedImputeParents <- imputeParents %>%
-  select(-c(sample1,sample2)) %>%
+  select(-c(sample1,sample2,chrStart,chrEnd)) %>%
   melt(.)
 
 #### shifting negative gen pos to 0, adding to the rest of the cm for that chr
@@ -103,31 +97,9 @@ runLoess <- function(span.table,frameMap,physPosToConvert,chrPrefix,roundCM=FALS
       
     }
   }
-  #physPosToConvert[grepl("Dummy0",physPosToConvert$MRN,perl=TRUE) & !is.na(physPosToConvert$InterpolatedGenPos),"InterpolatedGenPos"] <- 0.00
   return(physPosToConvert)
 }
-plotLoess <- function(physToGenMap,rounded=FALSE) {
-  # post loess plot ####
-  if(rounded){
-    loess.plot <- ggplot(data = physToGenMap, aes(x = value, y = InterpolatedGenPosRounded, color = AssumedLG)) + 
-      geom_point(size = 0.5) + 
-      scale_x_continuous(labels = label_number(suffix = "Mbp", scale = 1e-6), 
-                         expand = c(0,0), 
-                         limits = c(0, NA)) +  
-      facet_wrap(~chr, scales = "free" ) + 
-      theme_bw()
-    return(loess.plot)
-  } else{
-    loess.plot <- ggplot(data = physToGenMap, aes(x = value, y = InterpolatedGenPos, color = AssumedLG)) + 
-      geom_point(size = 0.5) + 
-      scale_x_continuous(labels = label_number(suffix = "Mbp", scale = 1e-6), 
-                         expand = c(0,0), 
-                         limits = c(0, NA)) +  
-      facet_wrap(~chr, scales = "free" ) + 
-      theme_bw()
-    return(loess.plot)
-  }
-}
+
 
 spanTable <- data.frame(Chromosome = unique(genMap$chr),fANCOVASpan=NA)
 loessSpanTable <- getFancovaSpans(span.table=spanTable,frameMap=genMap0Start,min.span=0.05)
@@ -139,26 +111,27 @@ regressedGenMap <- runLoess(span.table=loessSpanTable,
                             roundCM=4,
                             chrPrefix="chr",
                             shiftTo0=TRUE) %>%
-  mutate(AssumedLG=as.factor(as.character(AssumedLG)))
+  mutate(AssumedLG=as.factor(as.character(AssumedLG))) %>%
+  mutate(chrPos=paste0(chr,"_",value))
 
-loessPlot <- plotLoess(physToGenMap=regressedGenMap)
-loessPlot
+imputeParentsWithGen <- merge(imputeParents,regressedGenMap[,c("chrPos","InterpolatedGenPos")],by.x="chrStart",by.y="chrPos")
+imputeParentsWithGen <- merge(imputeParentsWithGen,regressedGenMap[,c("chrPos","InterpolatedGenPos")],by.x="chrEnd",by.y="chrPos") %>%
+  rename(.,startGen="InterpolatedGenPos.x") %>%
+  rename(.,endGen="InterpolatedGenPos.y") %>%
+  arrange(chrom,startGen) %>%
+  select(chrom,startGen,endGen,sample1)
 
-#### Jeff recommended approx.fun ####
-# ogut<-read.table("~/Desktop/ogut_fifthcM_map_agpv4_INCLUDE.txt",header=F)
-# colnames(ogut)=c("marker","marker_num","cm","chr","pos")
-# 
-get_cM <- function(gen.map,cr,p){
-  temp <- filter(gen.map,chr==cr)
-  return(approx(temp$pos,temp$cm,p)$y)
-}
-# 
-phys2GenWithApprox <- meltedImputeParents %>% mutate(cm=NA)
+combinedRegionParents <- imputeParentsWithGen %>%
+  mutate(new_group = (sample1 != lag(sample1, default = first(sample1))) | (chrom != lag(chrom, default = first(chrom)))) %>%
+  mutate(group = cumsum(new_group)) %>%
+  group_by(group, sample1,chrom) %>%
+  summarize(start = min(startGen), end = max(endGen), .groups = 'drop') %>%
+  select(-group)
 
-for(i in 1:nrow(phys2GenWithApprox)){
-  currentChr <- phys2GenWithApprox[i,"chr"] 
-  currentPhysPos <- phys2GenWithApprox[i,"value"]
-  approxGen <- get_cM(gen.map=genMap0Start,cr=currentChr,p=currentPhysPos)
-  phys2GenWithApprox[i,"cm"] <- ifelse(is.na(approxGen),0,approxGen)
-}
-
+combinedRegionParentsChr1 <- combinedRegionParents %>% filter(chrom=="chr1")
+perChr1PlotSegments <- ggplot(combinedRegionParentsChr1) + 
+  geom_segment(aes(x=start,xend=end,y=sample1,yend=sample1,color=sample1),linewidth=5) +
+  ggtitle(paste0("Imputed Parent per Genetic Segment of Chr for ",trialNameForPlot)) +
+  xlab("cM")+
+  ylab("NAM Parent")
+perChr1PlotSegments
