@@ -10,6 +10,7 @@ options(stringsAsFactors=FALSE)
 
 genMapFile <- "ogut_v5_from_paulo.map.txt"
 trialNameForPlot <- "ZeaSynDH_Trial1100_mapAccuracy0.9"
+minThreshold <- 0.1
 imputeParentsFile <- "~/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithsynDH/0.9mapAccuracy/ZeaSynDH_Trial1100_0.9accuracy_imputed_parents.txt"
 
 genMap <- read_delim(genMapFile, 
@@ -126,12 +127,15 @@ combinedRegionParents <- imputeParentsWithGen %>%
   mutate(group = cumsum(new_group)) %>%
   group_by(group, sample1,chrom) %>%
   summarize(start = min(startGen), end = max(endGen), .groups = 'drop') %>%
-  select(-group)
+  mutate(length=end-start) %>%
+  filter(length >= minThreshold)
+  #select(group) %>%
+  
 
 combinedRegionParentsChr1 <- combinedRegionParents %>% filter(chrom=="chr1")
-perChr1PlotSegments <- ggplot(combinedRegionParentsChr1) + 
+perChr1PlotSegmentsFiltered <- ggplot(combinedRegionParentsChr1) + 
   geom_segment(aes(x=start,xend=end,y=sample1,yend=sample1,color=sample1),linewidth=5) +
   ggtitle(paste0("Imputed Parent per Genetic Segment of Chr for ",trialNameForPlot)) +
   xlab("cM")+
   ylab("NAM Parent")
-perChr1PlotSegments
+perChr1PlotSegmentsFiltered
