@@ -9,16 +9,26 @@ options(scipen=999)
 options(stringsAsFactors=FALSE)
 
 genMapFile <- "ogut_v5_from_paulo.map.txt"
-trialNameForPlot <- "ZeaSynDH_Trial1100_mapAccuracy0.9"
-minThreshold <- 0.1
-imputeParentsFile <- "~/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithsynDH/0.9mapAccuracy/ZeaSynDH_Trial1100_0.9accuracy_imputed_parents.txt"
+trialNameForPlot <- "ZeaSynDH_Trial1064_mapAccuracy0.9"
+imputeParentsFile <- "~/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithsynDH/0.9mapAccuracy/ZeaSynDH_Trial1064_0.9accuracy_imputed_parents.txt"
+minThreshold <- 0.5 ### in cM, for filtering out regions smaller than this threshold
+windowSize <- 0.5 ### in cM, looks this number away from each feature and combines of it finds the same feature within that window
+#minThreshold <- NA
+
+
+### if it comes back to same lineage within x centimorgans, they'll be the same lineage
+#### whenever a change, look those x centimorgans ahead
+##### PHG different recombination probability between reference ranges as you move across genome, not just average
+######## Hacky: New PHG, insert fake n number of fake reference ranges between known to account for recomb freq differences between ranges
+#### graphing sizes of ref ranges shows that 3.5 orders of magnitude differences in length 
+###### focus on intergenic (most likely longer, so recomb), subset to those intergenic ones for the recreation of hist
+#### reach to to Jeff after with results so he can request that feature in the slack channel
 
 genMap <- read_delim(genMapFile, 
                      delim = "\t", escape_double = FALSE, 
                      col_types = cols(chr = col_integer(), 
                                       pos = col_integer(), cm = col_number()), 
-                     trim_ws = TRUE) %>% mutate(cm=round(cm,digits=3)) %>%
-  filter("scaf" %notin% chr)
+                     trim_ws = TRUE) %>% mutate(cm=round(cm,digits=3)) 
 imputeParents <- read_delim(imputeParentsFile, 
                             delim = "\t", escape_double = FALSE, 
                             col_types = cols(start = col_integer(), 
@@ -120,22 +130,58 @@ imputeParentsWithGen <- merge(imputeParentsWithGen,regressedGenMap[,c("chrPos","
   rename(.,startGen="InterpolatedGenPos.x") %>%
   rename(.,endGen="InterpolatedGenPos.y") %>%
   arrange(chrom,startGen) %>%
-  select(chrom,startGen,endGen,sample1)
+  select(chrom,startGen,endGen,sample1) %>%
+  mutate(length=endGen-startGen) 
 
 combinedRegionParents <- imputeParentsWithGen %>%
   mutate(new_group = (sample1 != lag(sample1, default = first(sample1))) | (chrom != lag(chrom, default = first(chrom)))) %>%
   mutate(group = cumsum(new_group)) %>%
   group_by(group, sample1,chrom) %>%
   summarize(start = min(startGen), end = max(endGen), .groups = 'drop') %>%
-  mutate(length=end-start) %>%
-  filter(length >= minThreshold)
-  #select(group) %>%
+  mutate(length=end-start) 
+
+#### used chatGPT to see if there was a simpler (non-write-your-own-function) way to do the below:
+combineRegionsInCMWindow <- function(precombinedRegions, windowSize) {
+  combined <- data.frame(start = numeric(0), end = numeric(0), label = character(0), stringsAsFactors = FALSE)
+  for(i in 1:nrow(precombinedRegions)){
+    current_start <- precombinedRegions$start[i]
+    current_end <- precombinedRegions$end[i]
+    current_label <- precombinedRegions$label[i]
+    
+    #### do I need this while loop if I only care about x distance ahead? But then how do I account for smaller regions in between, does it matter?
+    j <- i + 1
+    while (j <= nrow(precombinedRegions) && precombinedRegions$start[j] <= current_end + windowSize) {
+      current_end <- precombinedRegions$end[j]
+      j <- j + 1
+    }
+    
+    combined <- rbind(combined, data.frame(start = current_start, end = current_end, label = current_label))
+  }
+  return(combined)
+}
+
+if(is.na(minThreshold)){
+  dataToPlot <- combinedRegionParents
+  dataToPlotChr <- dataToPlot %>% filter(chrom=="chr1")
+  perChr1PlotSegments <- ggplot(dataToPlotChr) + 
+    geom_segment(aes(x=start,xend=end,y=sample1,yend=sample1,color=sample1),linewidth=5) +
+    #geom_segment(aes(x=start,xend=end,y=1,yend=1,color=sample1),linewidth=5) +
+    ggtitle(paste0("Imputed Parent per Genetic Segments of Chr 1 for ",trialNameForPlot)) +
+    xlab("cM")+
+    ylab("NAM Parent")
+  perChr1PlotSegments
+} else{
+  dataToPlotFiltered <- combinedRegionParents %>%
+    filter(length >= minThreshold)
+  dataToPlotChr <- dataToPlotFiltered %>% filter(chrom=="chr1")
+  perChr1PlotSegmentsFiltered <- ggplot(dataToPlotChr) + 
+    geom_segment(aes(x=start,xend=end,y=sample1,yend=sample1,color=sample1),linewidth=5) +
+    #geom_segment(aes(x=start,xend=end,y=1,yend=1,color=sample1),linewidth=5) +
+    ggtitle(paste0("Imputed Parent per Genetic Segments Greater than ",minThreshold," of Chr 1 for ",trialNameForPlot)) +
+    xlab("cM")+
+    ylab("NAM Parent")
+  perChr1PlotSegmentsFiltered
+}
   
 
-combinedRegionParentsChr1 <- combinedRegionParents %>% filter(chrom=="chr1")
-perChr1PlotSegmentsFiltered <- ggplot(combinedRegionParentsChr1) + 
-  geom_segment(aes(x=start,xend=end,y=sample1,yend=sample1,color=sample1),linewidth=5) +
-  ggtitle(paste0("Imputed Parent per Genetic Segment of Chr for ",trialNameForPlot)) +
-  xlab("cM")+
-  ylab("NAM Parent")
-perChr1PlotSegmentsFiltered
+
