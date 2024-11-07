@@ -9,10 +9,11 @@ options(scipen=999)
 options(stringsAsFactors=FALSE)
 
 genMapFile <- "ogut_v5_from_paulo.map.txt"
-trialNameForPlot <- "ZeaSynDH_Trial1064_mapAccuracy0.9"
-imputeParentsFile <- "~/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithsynDH/0.9mapAccuracy/ZeaSynDH_Trial1064_0.9accuracy_imputed_parents.txt"
+trialNameForPlot <- "ZeaSynDH_Trial1100_mapAccuracy0.9"
+imputeParentsFile <- "~/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithsynDH/0.9mapAccuracy/ZeaSynDH_Trial1100_0.9accuracy_imputed_parents.txt"
 minThreshold <- 0.5 ### in cM, for filtering out regions smaller than this threshold
 windowSize <- 0.5 ### in cM, looks this number away from each feature and combines of it finds the same feature within that window
+selectedChrom <- "chr1"
 #minThreshold <- NA
 
 
@@ -140,28 +141,37 @@ combinedRegionParents <- imputeParentsWithGen %>%
   summarize(start = min(startGen), end = max(endGen), .groups = 'drop') %>%
   mutate(length=end-start) 
 
+combinedRegionParentsChr <- combinedRegionParents %>% filter(chrom==selectedChrom)
 #### used chatGPT to see if there was a simpler (non-write-your-own-function) way to do the below:
-combineRegionsInCMWindow <- function(precombinedRegions, windowSize) {
-  combined <- data.frame(start = numeric(0), end = numeric(0), label = character(0), stringsAsFactors = FALSE)
-  for(i in 1:nrow(precombinedRegions)){
+combineRegionsInCMWindow <- function(precombinedRegions, window.size) {
+  combined <- data.frame(start = numeric(0), end = numeric(0), sample1 = character(0), stringsAsFactors = FALSE)
+  i <- 1
+  while (i <= nrow(precombinedRegions)){
     current_start <- precombinedRegions$start[i]
-    current_end <- precombinedRegions$end[i]
-    current_label <- precombinedRegions$label[i]
+    first_end <- precombinedRegions$end[i]
+    current_end <- first_end
+    current_label <- precombinedRegions$sample1[i]
+    currentChrom <- precombinedRegions$chrom[i]
     
-    #### do I need this while loop if I only care about x distance ahead? But then how do I account for smaller regions in between, does it matter?
     j <- i + 1
-    while (j <= nrow(precombinedRegions) && precombinedRegions$start[j] <= current_end + windowSize) {
-      current_end <- precombinedRegions$end[j]
+    while (j <= nrow(precombinedRegions) && precombinedRegions$start[j] <= current_end + window.size) {
+      if(precombinedRegions$sample1[j] == current_label){
+        current_end <- max(current_end,precombinedRegions$end[j])
+      }
       j <- j + 1
     }
     
-    combined <- rbind(combined, data.frame(start = current_start, end = current_end, label = current_label))
+    combined <- rbind(combined, data.frame(start = current_start, end = current_end, 
+                                           sample1 = current_label,chrom=currentChrom,length=current_end-current_start))
+    i <- j
   }
   return(combined)
 }
 
-if(is.na(minThreshold)){
-  dataToPlot <- combinedRegionParents
+parentsCombinedWindows <- combineRegionsInCMWindow(precombinedRegions=combinedRegionParentsChr,window.size = windowSize)
+
+if(is.na(windowSize)){
+  dataToPlot <- combinedRegionParentsChr
   dataToPlotChr <- dataToPlot %>% filter(chrom=="chr1")
   perChr1PlotSegments <- ggplot(dataToPlotChr) + 
     geom_segment(aes(x=start,xend=end,y=sample1,yend=sample1,color=sample1),linewidth=5) +
@@ -171,9 +181,7 @@ if(is.na(minThreshold)){
     ylab("NAM Parent")
   perChr1PlotSegments
 } else{
-  dataToPlotFiltered <- combinedRegionParents %>%
-    filter(length >= minThreshold)
-  dataToPlotChr <- dataToPlotFiltered %>% filter(chrom=="chr1")
+  dataToPlotChr <- parentsCombinedWindows 
   perChr1PlotSegmentsFiltered <- ggplot(dataToPlotChr) + 
     geom_segment(aes(x=start,xend=end,y=sample1,yend=sample1,color=sample1),linewidth=5) +
     #geom_segment(aes(x=start,xend=end,y=1,yend=1,color=sample1),linewidth=5) +
