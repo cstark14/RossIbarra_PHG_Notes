@@ -12,9 +12,9 @@ genMapFile <- "ogut_v5_from_paulo.map.txt"
 trialNameForPlot <- "ZeaSynDH_Trial1100_mapAccuracy0.9"
 imputeParentsFile <- "~/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithsynDH/0.9mapAccuracy/ZeaSynDH_Trial1100_0.9accuracy_imputed_parents.txt"
 minThreshold <- 0.5 ### in cM, for filtering out regions smaller than this threshold
-windowSize <- 0.5 ### in cM, looks this number away from each feature and combines of it finds the same feature within that window
+#windowSize <- NA ### in cM, looks this number away from each feature and combines of it finds the same feature within that window
+windowSize <- 10 ### in cM, looks this number away from each feature and combines of it finds the same feature within that window
 selectedChrom <- "chr1"
-#minThreshold <- NA
 
 
 ### if it comes back to same lineage within x centimorgans, they'll be the same lineage
@@ -154,21 +154,21 @@ combineRegionsInCMWindow <- function(precombinedRegions, window.size) {
     current_end <- first_end
     current_label <- precombinedRegions$sample1[i]
     currentChrom <- precombinedRegions$chrom[i]
-    print(paste0("first start: ",current_start))
-    print(paste0("first end: ",first_end))
-    print(current_label)
+    # print(paste0("first start: ",current_start))
+    # print(paste0("first end: ",first_end))
+    # print(current_label)
     
     j <- i + 1
     while (j <= nrow(precombinedRegions) && precombinedRegions$start[j] <= first_end + window.size) {
-      print(paste0("next label: ",precombinedRegions$sample1[j]))
-      print(paste0("next start: ",precombinedRegions$start[j]))
+      # print(paste0("next label: ",precombinedRegions$sample1[j]))
+      # print(paste0("next start: ",precombinedRegions$start[j]))
       if(precombinedRegions$sample1[j] == current_label){
-        print("found matching label")
+        # print("found matching label")
         current_end <- max(current_end,precombinedRegions$end[j])
       }
       j <- j + 1
     }
-    print(paste0("updated end for ",current_label," is ",current_end," instead of ",first_end))
+    # print(paste0("updated end for ",current_label," is ",current_end," instead of ",first_end))
     combined <- rbind(combined, data.frame(start = current_start, end = current_end, 
                                            sample1 = current_label,chrom=currentChrom,length=current_end-current_start))
     if(current_end != first_end){
@@ -183,28 +183,26 @@ combineRegionsInCMWindow <- function(precombinedRegions, window.size) {
   return(combined)
 }
 
-parentsCombinedWindows <- combineRegionsInCMWindow(precombinedRegions=combinedRegionParentsChr,window.size = windowSize)
-
 if(is.na(windowSize)){
   dataToPlot <- combinedRegionParentsChr
   dataToPlotChr <- dataToPlot %>% filter(chrom=="chr1")
   perChr1PlotSegments <- ggplot(dataToPlotChr) + 
     geom_segment(aes(x=start,xend=end,y=sample1,yend=sample1,color=sample1),linewidth=5) +
-    #geom_segment(aes(x=start,xend=end,y=1,yend=1,color=sample1),linewidth=5) +
+    geom_segment(aes(x=start,xend=end,y=0,yend=0,color=sample1),linewidth=5) +
     ggtitle(paste0("Imputed Parent per Genetic Segments of Chr 1 for ",trialNameForPlot)) +
     xlab("cM")+
     ylab("NAM Parent")
   perChr1PlotSegments
 } else{
+  parentsCombinedWindows <- combineRegionsInCMWindow(precombinedRegions=combinedRegionParentsChr,window.size = windowSize)
   dataToPlotChr <- parentsCombinedWindows 
-  perChr1PlotSegmentsFiltered <- ggplot(dataToPlotChr) + 
+  perChr1PlotSegments <- ggplot(dataToPlotChr) + 
     geom_segment(aes(x=start,xend=end,y=sample1,yend=sample1,color=sample1),linewidth=5) +
-    #geom_segment(aes(x=start,xend=end,y=1,yend=1,color=sample1),linewidth=5) +
-    ggtitle(paste0("Imputed Parent per Genetic Segments Greater than ",minThreshold," of Chr 1 for ",trialNameForPlot)) +
+    geom_segment(aes(x=start,xend=end,y=0,yend=0,color=sample1),linewidth=5) +
+    ggtitle(paste0("Imputed Parent per Genetic Segments (merging windows smaller than ",windowSize," cM) of Chr 1 for ",trialNameForPlot)) +
     xlab("cM")+
     ylab("NAM Parent")
-  perChr1PlotSegmentsFiltered
 }
-  
+perChr1PlotSegments
 
 
