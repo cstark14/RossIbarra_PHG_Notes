@@ -138,7 +138,8 @@ combinedRegionParents <- imputeParentsWithGen %>%
   mutate(new_group = (sample1 != lag(sample1, default = first(sample1))) | (chrom != lag(chrom, default = first(chrom)))) %>%
   mutate(group = cumsum(new_group)) %>%
   group_by(group, sample1,chrom) %>%
-  summarize(start = min(startGen), end = max(endGen), .groups = 'drop') %>%
+  #summarize(start = min(startGen), end = max(endGen), .groups = 'drop') %>%
+  summarize(start = round(min(startGen),4), end = round(max(endGen),4), .groups = 'drop') %>%
   mutate(length=end-start) 
 
 combinedRegionParentsChr <- combinedRegionParents %>% filter(chrom==selectedChrom)
@@ -146,25 +147,39 @@ combinedRegionParentsChr <- combinedRegionParents %>% filter(chrom==selectedChro
 combineRegionsInCMWindow <- function(precombinedRegions, window.size) {
   combined <- data.frame(start = numeric(0), end = numeric(0), sample1 = character(0), stringsAsFactors = FALSE)
   i <- 1
+  #while (i <= 219){
   while (i <= nrow(precombinedRegions)){
     current_start <- precombinedRegions$start[i]
     first_end <- precombinedRegions$end[i]
     current_end <- first_end
     current_label <- precombinedRegions$sample1[i]
     currentChrom <- precombinedRegions$chrom[i]
+    print(paste0("first start: ",current_start))
+    print(paste0("first end: ",first_end))
+    print(current_label)
     
     j <- i + 1
-    while (j <= nrow(precombinedRegions) && precombinedRegions$start[j] <= current_end + window.size) {
+    while (j <= nrow(precombinedRegions) && precombinedRegions$start[j] <= first_end + window.size) {
+      print(paste0("next label: ",precombinedRegions$sample1[j]))
+      print(paste0("next start: ",precombinedRegions$start[j]))
       if(precombinedRegions$sample1[j] == current_label){
+        print("found matching label")
         current_end <- max(current_end,precombinedRegions$end[j])
       }
       j <- j + 1
     }
-    
+    print(paste0("updated end for ",current_label," is ",current_end," instead of ",first_end))
     combined <- rbind(combined, data.frame(start = current_start, end = current_end, 
                                            sample1 = current_label,chrom=currentChrom,length=current_end-current_start))
-    i <- j
+    if(current_end != first_end){
+      #i <- j - 1
+      i <- which(precombinedRegions$start == current_end)
+    } else {
+      i <- i + 1
+    }
+    
   }
+  combinedUniqueEnds <- combined %>% distinct(end,sample1,.keep_all = T)
   return(combined)
 }
 
