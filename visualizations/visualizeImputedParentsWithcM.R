@@ -5,11 +5,12 @@ library(readr)
 library(reshape2)
 library(ggplot2)
 library(scales)
-library(RColorBrewer)
+# library(RColorBrewer)
 library(colorBlindness)
-library(ggthemes)
+#library(plyr)
 options(scipen=999)
 options(stringsAsFactors=FALSE)
+"%notin%" <- Negate("%in%")
 
 genMapFile <- "ogut_v5_from_paulo.map.txt"
 trialNameForPlot <- "ZeaSynDH_Trial1100_mapAccuracy0.9"
@@ -18,7 +19,7 @@ minThreshold <- 2 ### in cM, size of parent region which will flag to look for c
 #windowSize <- NA ### in cM, looks this number away from each feature and combines of it finds the same feature within that window
 ### in cM, looks this number away from each feature and 
 ### combines of it finds the same feature within that window
-windowSize <- 5 ### can be a number or "dynamic"
+windowSize <- NA ### can be a number or "dynamic"
 selectedChrom <- "chr1"
 
 
@@ -263,12 +264,14 @@ combineRegionsInCMWindow_assumeLeft <- function(precombinedRegions, window.size)
 }
 
 if(is.na(windowSize)){
-  dataToPlot <- combinedRegionParentsChr
-  dataToPlotChr <- dataToPlot %>% filter(chrom=="chr1")
+  parentsNotInData <- ggplotParentColorsTable %>% filter(parent %notin% combinedRegionParentsChr$sample1) %>% dplyr::rename(.,sample1=parent) %>% select(- color)
+  dataToPlotChr <- plyr::rbind.fill(combinedRegionParentsChr,parentsNotInData)
+  
   perChr1PlotSegments <- ggplot(dataToPlotChr) + 
     geom_segment(aes(x=start,xend=end,y=sample1,yend=sample1,color=sample1),linewidth=5) +
     geom_segment(aes(x=start,xend=end,y=0,yend=0,color=sample1),linewidth=5) +
     scale_color_manual(values=ggPlotParentVector) + 
+    scale_y_discrete(drop=FALSE) +
     ggtitle(paste0("Imputed Parent per Genetic Segments of Chr 1 for ",trialNameForPlot)) +
     xlab("cM")+
     ylab("NAM Parent")
@@ -284,11 +287,15 @@ if(is.na(windowSize)){
     title <- paste0("Imputed Parent per cM (merged ranges smaller than ",
                     minThreshold," cM using ",windowSize," cM windows) of Chr 1 for ",trialNameForPlot)
   }
-  dataToPlotChr <- parentsCombinedWindows 
+
+  parentsNotInData <- ggplotParentColorsTable %>% filter(parent %notin% parentsCombinedWindows$sample1) %>% dplyr::rename(.,sample1=parent) %>% select(- color)
+  dataToPlotChr <- plyr::rbind.fill(parentsCombinedWindows,parentsNotInData)
+  
   perChr1PlotSegments <- ggplot(dataToPlotChr) + 
     geom_segment(aes(x=start,xend=end,y=sample1,yend=sample1,color=sample1),linewidth=5) +
     geom_segment(aes(x=start,xend=end,y=0,yend=0,color=sample1),linewidth=5) +
     scale_color_manual(values=ggPlotParentVector) + 
+    scale_y_discrete(drop=FALSE) +
     ggtitle(title) +
     xlab("cM")+
     ylab("NAM Parent")
