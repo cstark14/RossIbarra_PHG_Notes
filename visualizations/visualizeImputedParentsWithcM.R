@@ -5,6 +5,9 @@ library(readr)
 library(reshape2)
 library(ggplot2)
 library(scales)
+library(RColorBrewer)
+library(colorBlindness)
+library(ggthemes)
 options(scipen=999)
 options(stringsAsFactors=FALSE)
 
@@ -43,6 +46,11 @@ imputeParents <- read_delim(imputeParentsFile,
 meltedImputeParents <- imputeParents %>%
   select(-c(sample1,sample2,chrStart,chrEnd)) %>%
   melt(.)
+
+ggplotParentColorsTable <- data.frame(parent=unique(imputeParents$sample1),color=NA) %>% 
+  # mutate(color=colorRampPalette((brewer.pal(12, "Paired")))(nrow(ggplotParentColors)))
+  mutate(color=colorRampPalette(colorBlindness::paletteMartin)(nrow(.)))
+ggPlotParentVector <- setNames(as.character(ggplotParentColorsTable$color),as.character(ggplotParentColorsTable$parent))
 
 #### shifting negative gen pos to 0, adding to the rest of the cm for that chr
 shiftGenMapTo0 <- function(gen.map){
@@ -164,9 +172,15 @@ combineRegionsInCMWindow_mode <- function(precombinedRegions, window.size,min.si
     if(currentLength < min.size){
       #break
       if (is.numeric(window.size)){
-        windowEnd = current_end+window.size
+        j <- i + 1
+        windowEnd <- NA
+        while (j <= nrow(precombinedRegions) && precombinedRegions$start[j] <= first_end + window.size) {
+          windowEnd <- precombinedRegions$end[j]
+          j <- j +1
+        }
       } else if(window.size == "dynamic"){
         j <- i + 1
+        windowEnd <- NA
         while (j <= nrow(precombinedRegions) && precombinedRegions$length[j] < min.size) {
             windowEnd <- precombinedRegions$end[j]
             j <- j +1
@@ -175,13 +189,20 @@ combineRegionsInCMWindow_mode <- function(precombinedRegions, window.size,min.si
         print("Unrecognized value for windowSize. Please use either 'dynamic' or a number")
         break
       }
-      windowTable <- precombinedRegions %>% filter(between(end,current_end,windowEnd)) %>%
-        group_by(sample1) %>%
-        summarise(sumLength = sum(length))
-      mostLikelyParent <- windowTable[which(windowTable$sumLength == max(windowTable$sumLength)),"sample1"][1]
+      if(!is.na(windowEnd)){
+        windowTable <- precombinedRegions %>% filter(between(end,current_end,windowEnd)) 
+        windowTableSummary <- windowTable %>%
+          group_by(sample1) %>%
+          summarise(sumLength = sum(length))
+        mostLikelyParent <- windowTableSummary[which(windowTableSummary$sumLength == max(windowTableSummary$sumLength)),"sample1"][1]
+        current_end <- max(windowTable$end)
+        current_label <- mostLikelyParent
+      } else {
+        
+      }
+      
     }
-    
-    
+
     # print(paste0("updated end for ",current_label," is ",current_end," instead of ",first_end))
     combined <- rbind(combined, data.frame(start = current_start, end = current_end, 
                                            sample1 = current_label,chrom=currentChrom,length=current_end-current_start))
@@ -193,8 +214,13 @@ combineRegionsInCMWindow_mode <- function(precombinedRegions, window.size,min.si
     }
     
   }
-  combinedUniqueEnds <- combined %>% distinct(end,sample1,.keep_all = T)
-  return(combined)
+  combinedUniqueEnds <- combined %>% distinct(end,sample1,.keep_all = T) %>%
+    mutate(new_group = (sample1 != lag(sample1, default = first(sample1))) | (chrom != lag(chrom, default = first(chrom)))) %>%
+    mutate(group = cumsum(new_group)) %>%
+    group_by(group, sample1,chrom) %>%
+    summarize(start = round(min(start),4), end = round(max(end),4), .groups = 'drop') %>%
+    mutate(length=end-start) 
+  return(combinedUniqueEnds)
 }
 
 combineRegionsInCMWindow_assumeLeft <- function(precombinedRegions, window.size) {
@@ -242,21 +268,31 @@ if(is.na(windowSize)){
   perChr1PlotSegments <- ggplot(dataToPlotChr) + 
     geom_segment(aes(x=start,xend=end,y=sample1,yend=sample1,color=sample1),linewidth=5) +
     geom_segment(aes(x=start,xend=end,y=0,yend=0,color=sample1),linewidth=5) +
+    scale_color_manual(values=ggPlotParentVector) + 
     ggtitle(paste0("Imputed Parent per Genetic Segments of Chr 1 for ",trialNameForPlot)) +
     xlab("cM")+
     ylab("NAM Parent")
   perChr1PlotSegments
 } else{
-  parentsCombinedWindows <- combineRegionsInCMWindow(precombinedRegions=combinedRegionParentsChr,
+  parentsCombinedWindows <- combineRegionsInCMWindow_mode(precombinedRegions=combinedRegionParentsChr,
                                                      window.size = windowSize,
                                                      min.size=minThreshold)
+  if(windowSize == "dynamic"){
+    title <- paste0("Imputed Parent per cM (merged ranges smaller than ",
+                    minThreshold," cM, using dynamic windows) of Chr 1 for ",trialNameForPlot)
+  } else {
+    title <- paste0("Imputed Parent per cM (merged ranges smaller than ",
+                    minThreshold," cM using ",windowSize," cM windows) of Chr 1 for ",trialNameForPlot)
+  }
   dataToPlotChr <- parentsCombinedWindows 
   perChr1PlotSegments <- ggplot(dataToPlotChr) + 
     geom_segment(aes(x=start,xend=end,y=sample1,yend=sample1,color=sample1),linewidth=5) +
     geom_segment(aes(x=start,xend=end,y=0,yend=0,color=sample1),linewidth=5) +
-    ggtitle(paste0("Imputed Parent per Genetic Segments (merging windows smaller than ",windowSize," cM) of Chr 1 for ",trialNameForPlot)) +
+    scale_color_manual(values=ggPlotParentVector) + 
+    ggtitle(title) +
     xlab("cM")+
     ylab("NAM Parent")
+  perChr1PlotSegments
 }
 perChr1PlotSegments
 
