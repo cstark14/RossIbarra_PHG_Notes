@@ -11,9 +11,11 @@ options(stringsAsFactors=FALSE)
 genMapFile <- "ogut_v5_from_paulo.map.txt"
 trialNameForPlot <- "ZeaSynDH_Trial1100_mapAccuracy0.9"
 imputeParentsFile <- "~/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithsynDH/0.9mapAccuracy/ZeaSynDH_Trial1100_0.9accuracy_imputed_parents.txt"
-minThreshold <- 0.5 ### in cM, for filtering out regions smaller than this threshold
+minThreshold <- 2 ### in cM, size of parent region which will flag to look for combination
 #windowSize <- NA ### in cM, looks this number away from each feature and combines of it finds the same feature within that window
-windowSize <- 10 ### in cM, looks this number away from each feature and combines of it finds the same feature within that window
+### in cM, looks this number away from each feature and 
+### combines of it finds the same feature within that window
+windowSize <- 5 ### can be a number or "dynamic"
 selectedChrom <- "chr1"
 
 
@@ -144,7 +146,58 @@ combinedRegionParents <- imputeParentsWithGen %>%
 
 combinedRegionParentsChr <- combinedRegionParents %>% filter(chrom==selectedChrom)
 #### used chatGPT to see if there was a simpler (non-write-your-own-function) way to do the below:
-combineRegionsInCMWindow <- function(precombinedRegions, window.size) {
+combineRegionsInCMWindow_mode <- function(precombinedRegions, window.size,min.size) {
+  combined <- data.frame(start = numeric(0), end = numeric(0), sample1 = character(0), stringsAsFactors = FALSE)
+  i <- 1
+  #while (i <= 219){
+  while (i <= nrow(precombinedRegions)){
+    current_start <- precombinedRegions$start[i]
+    first_end <- precombinedRegions$end[i]
+    current_end <- first_end
+    current_label <- precombinedRegions$sample1[i]
+    currentChrom <- precombinedRegions$chrom[i]
+    currentLength <- precombinedRegions$length[i]
+    # print(paste0("first start: ",current_start))
+    # print(paste0("first end: ",first_end))
+    # print(current_label)
+    
+    if(currentLength < min.size){
+      #break
+      if (is.numeric(window.size)){
+        windowEnd = current_end+window.size
+      } else if(window.size == "dynamic"){
+        j <- i + 1
+        while (j <= nrow(precombinedRegions) && precombinedRegions$length[j] < min.size) {
+            windowEnd <- precombinedRegions$end[j]
+            j <- j +1
+        }
+      } else{
+        print("Unrecognized value for windowSize. Please use either 'dynamic' or a number")
+        break
+      }
+      windowTable <- precombinedRegions %>% filter(between(end,current_end,windowEnd)) %>%
+        group_by(sample1) %>%
+        summarise(sumLength = sum(length))
+      mostLikelyParent <- windowTable[which(windowTable$sumLength == max(windowTable$sumLength)),"sample1"][1]
+    }
+    
+    
+    # print(paste0("updated end for ",current_label," is ",current_end," instead of ",first_end))
+    combined <- rbind(combined, data.frame(start = current_start, end = current_end, 
+                                           sample1 = current_label,chrom=currentChrom,length=current_end-current_start))
+    if(current_end != first_end){
+      #i <- j - 1
+      i <- which(precombinedRegions$start == current_end)
+    } else {
+      i <- i + 1
+    }
+    
+  }
+  combinedUniqueEnds <- combined %>% distinct(end,sample1,.keep_all = T)
+  return(combined)
+}
+
+combineRegionsInCMWindow_assumeLeft <- function(precombinedRegions, window.size) {
   combined <- data.frame(start = numeric(0), end = numeric(0), sample1 = character(0), stringsAsFactors = FALSE)
   i <- 1
   #while (i <= 219){
@@ -194,7 +247,9 @@ if(is.na(windowSize)){
     ylab("NAM Parent")
   perChr1PlotSegments
 } else{
-  parentsCombinedWindows <- combineRegionsInCMWindow(precombinedRegions=combinedRegionParentsChr,window.size = windowSize)
+  parentsCombinedWindows <- combineRegionsInCMWindow(precombinedRegions=combinedRegionParentsChr,
+                                                     window.size = windowSize,
+                                                     min.size=minThreshold)
   dataToPlotChr <- parentsCombinedWindows 
   perChr1PlotSegments <- ggplot(dataToPlotChr) + 
     geom_segment(aes(x=start,xend=end,y=sample1,yend=sample1,color=sample1),linewidth=5) +
