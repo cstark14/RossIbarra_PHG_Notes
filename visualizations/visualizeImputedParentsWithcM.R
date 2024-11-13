@@ -155,10 +155,10 @@ combinedRegionParents <- imputeParentsWithGen %>%
 
 combinedRegionParentsChr <- combinedRegionParents %>% filter(chrom==selectedChrom)
 #### used chatGPT to see if there was a simpler (non-write-your-own-function) way to do the below:
-combineRegionsInCMWindow_mode <- function(precombinedRegions, window.size,min.size) {
+combineRegionsInCMWindow_mode <- function(precombinedRegions, window.size, min.size) {
   combined <- data.frame(start = numeric(0), end = numeric(0), sample1 = character(0), stringsAsFactors = FALSE)
   i <- 1
-  #while (i <= 219){
+  #while (i <= 354){
   while (i <= nrow(precombinedRegions)){
     current_start <- precombinedRegions$start[i]
     first_end <- precombinedRegions$end[i]
@@ -193,15 +193,47 @@ combineRegionsInCMWindow_mode <- function(precombinedRegions, window.size,min.si
         break
       }
       if(!is.na(windowEnd)){
-        windowTable <- precombinedRegions %>% filter(between(end,current_end,windowEnd)) 
-        windowTableSummary <- windowTable %>%
-          group_by(sample1) %>%
-          summarise(sumLength = sum(length))
-        mostLikelyParent <- windowTableSummary[which(windowTableSummary$sumLength == max(windowTableSummary$sumLength)),"sample1"][1]
-        current_end <- max(windowTable$end)
-        current_label <- mostLikelyParent
+        if(current_end+windowEnd < min.size){
+            parentBefore <- precombinedRegions$sample1[i-1]
+            parentAfter <- precombinedRegions$sample1[j+1]
+            if(parentBefore==parentAfter){
+              current_label <- parentAfter
+            } else {
+              print(paste0("Unable to combine window at ",current_start," for ",current_label,". Parent region before did not match parent region after"))
+            }
+        } else{
+          windowTable <- precombinedRegions %>% filter(between(end,current_end,windowEnd)) 
+          windowTableSummary <- windowTable %>%
+            group_by(sample1) %>%
+            summarise(sumLength = sum(length))
+          mostLikelyParent <- windowTableSummary[which(windowTableSummary$sumLength == max(windowTableSummary$sumLength)),"sample1"][1]
+          current_end <- max(windowTable$end)
+          current_label <- mostLikelyParent
+        }
       } else {
-        
+        if(i==1) {
+          ### first region
+          if(precombinedRegions$length[i+1]>min.size){
+            current_label <- precombinedRegions$sample1[i+1]
+          } else {
+            print(paste0("Unable to combine window at ",current_start," for ",current_label,". The second parent region was not larger than minThreshold"))
+          }
+        } else if (i==nrow(precombinedRegions)) {
+          ### last region
+          if(precombinedRegions$length[i-1]>min.size){
+            current_label <- precombinedRegions$sample1[i-1]
+          } else{
+            print(paste0("Unable to combine window at ",current_start," for ",current_label,". The second to last parent region was not larger than minThreshold"))
+          }
+        } else {
+          parentBefore <- precombinedRegions$sample1[i-1]
+          parentAfter <- precombinedRegions$sample1[i+1]
+          if(parentBefore==parentAfter){
+            current_label <- parentAfter
+          } else {
+            print(paste0("Unable to combine window at ",current_start," for ",current_label,". Parent region before did not match parent region after"))
+          }
+        }
       }
       
     }
