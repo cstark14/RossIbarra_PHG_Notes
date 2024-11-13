@@ -186,6 +186,8 @@ combineRegionsInCMWindow_mode <- function(precombinedRegions, window.size,min.si
             windowEnd <- precombinedRegions$end[j]
             j <- j +1
         }
+        #### add in logic so if the current window is less than the threshold, 
+        #### and the regions on either side are the same parent, call it that parent
       } else{
         print("Unrecognized value for windowSize. Please use either 'dynamic' or a number")
         break
