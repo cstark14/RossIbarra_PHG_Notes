@@ -10,4 +10,5 @@ module load sratoolkit
 
 #cat SRP009896_SRR_Acc_List.txt | while read line; do prefetch $line; fasterq-dump $line;  done
 #prefetch --option-file SRP009896_SRR_Acc_List.txt
-fasterq-dump -e 12 -m 10GB --split-files --option-file SRP009896_SRR_Acc_List.txt
+#fasterq-dump -e 12 -m 10GB --split-files --option-file SRP009896_SRR_Acc_List.txt
+cat SRP009896_SRR_Acc_List.txt | xargs fasterq-dump -e 12 -m 10GB
