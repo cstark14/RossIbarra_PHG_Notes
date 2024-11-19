@@ -1,8 +1,8 @@
 #!/bin/bash -l
 #SBATCH -D /group/jrigrp11/cstark/namRIL_GBS/
 #SBATCH -J phgNamRILSimpute
-#SBATCH -o /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_20241119.sbatch.out
-#SBATCH -e /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_20241119.sbatch.err
+#SBATCH -o /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_20241119_%j.sbatch.out
+#SBATCH -e /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_20241119_%j.sbatch.err
 #SBATCH -t 24:00:00
 #SBATCH --partition=high2
 #SBATCH --ntasks=30
