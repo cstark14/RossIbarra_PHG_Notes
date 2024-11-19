@@ -11,7 +11,7 @@ module load conda
 module load jdk
 
 export PATH="/group/jrigrp11/cstark/phg/bin:$PATH"
-export JAVA_OPTS="-Xmx100g"
+export JAVA_OPTS="-Xmx240g"
 
 phg map-kmers \
     --hvcf-dir /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/vcf_files \

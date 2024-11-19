@@ -11,7 +11,7 @@ module load conda
 module load jdk
 
 export PATH="/group/jrigrp11/cstark/phg/bin:$PATH"
-export JAVA_OPTS="-Xmx100g"
+export JAVA_OPTS="-Xmx240g"
 
 phg find-paths \
     --path-keyfile /group/jrigrp11/cstark/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/NAM_RILs_SRP009896_imputeKeyfile.txt \
