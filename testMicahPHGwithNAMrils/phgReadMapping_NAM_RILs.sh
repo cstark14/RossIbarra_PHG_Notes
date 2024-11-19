@@ -5,7 +5,7 @@
 #SBATCH -e /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSmapping_20241119.sbatch.err
 #SBATCH -t 24:00:00
 #SBATCH --partition=high2
-#SBATCH --mem=240000
+#SBATCH --ntasks=30
 
 module load conda
 module load jdk
