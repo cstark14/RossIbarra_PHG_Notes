@@ -1,0 +1,432 @@
+sampleName	filename
+SRR391113	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391113_readMapping.txt
+SRR391114	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391114_readMapping.txt
+SRR391115	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391115_readMapping.txt
+SRR391116	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391116_readMapping.txt
+SRR391117	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391117_readMapping.txt
+SRR391118	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391118_readMapping.txt
+SRR391119	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391119_readMapping.txt
+SRR391120	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391120_readMapping.txt
+SRR391121	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391121_readMapping.txt
+SRR391122	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391122_readMapping.txt
+SRR391123	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391123_readMapping.txt
+SRR391124	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391124_readMapping.txt
+SRR391125	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391125_readMapping.txt
+SRR391126	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391126_readMapping.txt
+SRR391127	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391127_readMapping.txt
+SRR391128	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391128_readMapping.txt
+SRR391129	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391129_readMapping.txt
+SRR391130	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391130_readMapping.txt
+SRR391131	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391131_readMapping.txt
+SRR391166	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391166_readMapping.txt
+SRR391167	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391167_readMapping.txt
+SRR391168	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391168_readMapping.txt
+SRR391169	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391169_readMapping.txt
+SRR391079	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391079_readMapping.txt
+SRR391080	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391080_readMapping.txt
+SRR391081	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391081_readMapping.txt
+SRR391082	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391082_readMapping.txt
+SRR391083	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391083_readMapping.txt
+SRR391084	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391084_readMapping.txt
+SRR391085	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391085_readMapping.txt
+SRR391086	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391086_readMapping.txt
+SRR391087	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391087_readMapping.txt
+SRR391088	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391088_readMapping.txt
+SRR391089	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391089_readMapping.txt
+SRR391090	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391090_readMapping.txt
+SRR391091	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391091_readMapping.txt
+SRR391092	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391092_readMapping.txt
+SRR391093	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391093_readMapping.txt
+SRR391094	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391094_readMapping.txt
+SRR391095	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391095_readMapping.txt
+SRR391096	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391096_readMapping.txt
+SRR391097	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391097_readMapping.txt
+SRR391098	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391098_readMapping.txt
+SRR391099	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391099_readMapping.txt
+SRR391100	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391100_readMapping.txt
+SRR391101	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391101_readMapping.txt
+SRR391102	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391102_readMapping.txt
+SRR391103	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391103_readMapping.txt
+SRR391104	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391104_readMapping.txt
+SRR391105	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391105_readMapping.txt
+SRR391106	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391106_readMapping.txt
+SRR391107	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391107_readMapping.txt
+SRR391108	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391108_readMapping.txt
+SRR391109	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391109_readMapping.txt
+SRR391110	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391110_readMapping.txt
+SRR391111	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391111_readMapping.txt
+SRR391112	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391112_readMapping.txt
+SRR391132	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391132_readMapping.txt
+SRR391133	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391133_readMapping.txt
+SRR391134	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391134_readMapping.txt
+SRR391135	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391135_readMapping.txt
+SRR391136	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391136_readMapping.txt
+SRR391137	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391137_readMapping.txt
+SRR391138	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391138_readMapping.txt
+SRR391139	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391139_readMapping.txt
+SRR391140	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391140_readMapping.txt
+SRR391141	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391141_readMapping.txt
+SRR391142	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391142_readMapping.txt
+SRR391143	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391143_readMapping.txt
+SRR391144	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391144_readMapping.txt
+SRR391145	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391145_readMapping.txt
+SRR391146	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391146_readMapping.txt
+SRR391147	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391147_readMapping.txt
+SRR391148	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391148_readMapping.txt
+SRR391149	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391149_readMapping.txt
+SRR391150	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391150_readMapping.txt
+SRR391151	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391151_readMapping.txt
+SRR391152	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391152_readMapping.txt
+SRR391153	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391153_readMapping.txt
+SRR391154	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391154_readMapping.txt
+SRR391155	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391155_readMapping.txt
+SRR391156	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391156_readMapping.txt
+SRR391157	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391157_readMapping.txt
+SRR391158	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391158_readMapping.txt
+SRR391159	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391159_readMapping.txt
+SRR391160	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391160_readMapping.txt
+SRR391161	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391161_readMapping.txt
+SRR391162	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391162_readMapping.txt
+SRR391163	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391163_readMapping.txt
+SRR391164	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391164_readMapping.txt
+SRR391165	/group/jrigrp11/cstark/namRIL_GBS/readmapped/SRR391165_readMapping.txt
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/group/jrigrp11/cstark/synDHfastqPHGmapped/fastqList1_phgMappingKeyFile.txt
+	/group/jrigrp11/cstark/synDHfastqPHGmapped/fastqList1_phgMappingKeyFile_oneSample.txt
+	/group/jrigrp11/cstark/synDHfastqPHGmapped/fastqList2_phgMappingKeyFile.txt
+	/group/jrigrp11/cstark/synDHfastqPHGmapped/fastqList3_phgMappingKeyFile.txt
+	/group/jrigrp11/cstark/synDHfastqPHGmapped/mappingfastqList1_20241021.err
+	/group/jrigrp11/cstark/synDHfastqPHGmapped/mappingfastqList1_20241021.out
+	/group/jrigrp11/cstark/synDHfastqPHGmapped/mappingfastqList2_20241021.err
+	/group/jrigrp11/cstark/synDHfastqPHGmapped/mappingfastqList2_20241021.out
+	/group/jrigrp11/cstark/synDHfastqPHGmapped/mappingfastqList3_20241021.err
+	/group/jrigrp11/cstark/synDHfastqPHGmapped/mappingfastqList3_20241021.out
