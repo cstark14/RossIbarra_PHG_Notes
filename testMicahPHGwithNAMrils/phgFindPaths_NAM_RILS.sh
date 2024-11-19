@@ -6,6 +6,7 @@
 #SBATCH -t 24:00:00
 #SBATCH --partition=high2
 #SBATCH --ntasks=30
+#SBATCH --mem=240000
 
 module load conda
 module load jdk
