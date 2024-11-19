@@ -1,8 +1,8 @@
 #!/bin/bash -l
 #SBATCH -D /group/jrigrp11/cstark/namRIL_GBS/
 #SBATCH -J phgNamRILSmapping
-#SBATCH -o /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSmapping.sbatch.out
-#SBATCH -e /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSmapping.sbatch.err
+#SBATCH -o /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSmapping_20241119.sbatch.out
+#SBATCH -e /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSmapping_20241119.sbatch.err
 #SBATCH -t 24:00:00
 #SBATCH --partition=high2
 #SBATCH --mem=240000
