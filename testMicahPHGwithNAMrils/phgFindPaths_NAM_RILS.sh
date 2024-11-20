@@ -21,4 +21,4 @@ phg find-paths \
     --path-type diploid \
     --output-dir /group/jrigrp11/cstark/namRIL_GBS/imputed_prob0.9 \
     --prob-correct=0.90 \
-    --out-parents-dir /group/jrigrp11/cstark/namRIL_GBS/imputed_prob0.9/parents > > /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_Acc0.9_20241119.out 2> /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_Acc0.9_20241119.err
+    --out-parents-dir /group/jrigrp11/cstark/namRIL_GBS/imputed_prob0.9/parents > /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_Acc0.9_20241119.out 2> /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_Acc0.9_20241119.err
