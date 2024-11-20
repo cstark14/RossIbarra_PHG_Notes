@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH -D /group/jrigrp11/cstark/namRIL_GBS/
+#SBATCH -D /group/jrigrp11/cstark/
 #SBATCH -J phgNamRILSimpute
 #SBATCH -o /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_20241119_%j.sbatch.out
 #SBATCH -e /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_20241119_%j.sbatch.err
@@ -16,8 +16,8 @@ export JAVA_OPTS="-Xmx240g"
 
 phg find-paths \
     --path-keyfile /group/jrigrp11/cstark/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/NAM_RILs_SRP009896_imputeKeyfile.txt \
-    --hvcf-dir /group/jrigrp11/cstark/filesFromMicahK_Danforth/phv2.4.8.162_ZeaSyn/output/vcf_files \
-    --reference-genome /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/updated_assemblies/B73.fa \
+    --hvcf-dir /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/vcf_files \
+    --reference-genome /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/updated_assemblies/B73.fa.gz \
     --path-type diploid \
     --output-dir /group/jrigrp11/cstark/namRIL_GBS/imputed_prob0.9 \
     --prob-correct=0.90 \
