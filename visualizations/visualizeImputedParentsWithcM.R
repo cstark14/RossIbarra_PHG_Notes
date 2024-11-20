@@ -12,12 +12,13 @@ options(scipen=999)
 options(stringsAsFactors=FALSE)
 "%notin%" <- Negate("%in%")
 
-source("C://Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/visualizations/visualizeImputedParentsWithcM_Functions.R")
-genMapFile <- "ogut_v5_from_paulo.map.txt"
-genMapFile <- "C://Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/visualizations/ogut_v5_from_paulo.map.txt"
+#source("C://Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/visualizations/visualizeImputedParentsWithcM_Functions.R")
+source("~/Documents/GitHub/RossIbarra_PHG_Notes/visualizations/visualizeImputedParentsWithcM_Functions.R")
+genMapFile <- "~/Documents/GitHub/RossIbarra_PHG_Notes/visualizations//ogut_v5_from_paulo.map.txt"
+#genMapFile <- "C://Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/visualizations/ogut_v5_from_paulo.map.txt"
 trialNameForPlot <- "SRR391113_Acc0.9"
-#imputeParentsFile <- "~/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithsynDH/0.9mapAccuracy/ZeaSynDH_Trial1100_0.9accuracy_imputed_parents.txt"
-imputeParentsFile <- "C:/Users/Cristian/Downloads/parents_NAM_RILs_subset/SRR391118_imputed_parents.txt"
+imputeParentsFile <- "~//Downloads/parents_NAM_RILs_subset/SRR391118_imputed_parents.txt"
+#imputeParentsFile <- "C:/Users/Cristian/Downloads/parents_NAM_RILs_subset/SRR391118_imputed_parents.txt"
 minThreshold <- 2 ### in cM, size of parent region which will flag to look for combination
 #windowSize <- NA ### in cM, looks this number away from each feature and combines of it finds the same feature within that window
 ### in cM, looks this number away from each feature and 
@@ -129,5 +130,6 @@ if(is.na(windowSize)){
   perChr1PlotSegments
 }
 perChr1PlotSegments
+
 
 
