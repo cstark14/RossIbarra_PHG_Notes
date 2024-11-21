@@ -20,5 +20,5 @@ phg find-paths \
     --reference-genome /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/updated_assemblies/B73.fa.gz \
     --path-type haploid \
     --output-dir /group/jrigrp11/cstark/namRIL_GBS/imputed_prob0.9 \
-    --prob-correct=0.90 \
+    --prob-correct=0.99 \
     --out-parents-dir /group/jrigrp11/cstark/namRIL_GBS/imputed_prob0.9/parents > /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_Acc0.9_20241120.out 2> /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_Acc0.9_20241120.err

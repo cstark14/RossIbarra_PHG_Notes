@@ -17,23 +17,25 @@ singleFileOrFolder <- "folder" ### folder or file
 minThreshold <- 2 ### in cM, size of parent region which will flag to look for combination
 ### in cM, looks this number away from each feature and 
 ### combines of it finds the same feature within that window
-windowSize <- "dynamic" ### can be a number or "dynamic"
-selectedChrom <- "chr1"
+windowSize <- "dynamic" ### can be a number or "dynamic" or NA
+#windowSize <- NA
+selectedChrom <- "chr7"
 
 ##### below 3 lines only necessary for single files
 trialNameForPlot <- "SRR391113_Acc0.9"
 #imputeParentsFile <- "~//Downloads/parents_NAM_RILs_subset/SRR391118_imputed_parents.txt"
-imputeParentsFile <- "C:/Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/subset/SRR391113_imputed_parents.txt"
+#imputeParentsFile <- "C:/Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/subset/SRR391113_imputed_parents.txt"
 
 #### below lines for folder
-filenameExtraInfo <- "_Acc0.9_dynamicConcat" ### add any additional naming to the output file names..... assumes your filename is <identifier>_imputed_parents.txt
-folderPath <- "C:/Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/subset/"
+filenameExtraInfo <- "_Acc0.9" ### add any additional naming to the output file names..... assumes your filename is <identifier>_imputed_parents.txt
+#folderPath <- "C:/Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/subset/"
+folderPath <- "~/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/subset/"
 
 
-source("C://Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/visualizations/visualizeImputedParentsWithcM_Functions.R")
-#source("~/Documents/GitHub/RossIbarra_PHG_Notes/visualizations/visualizeImputedParentsWithcM_Functions.R")
-#genMapFile <- "~/Documents/GitHub/RossIbarra_PHG_Notes/visualizations//ogut_v5_from_paulo.map.txt"
-genMapFile <- "C://Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/visualizations/ogut_v5_from_paulo.map.txt"
+#source("C://Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/visualizations/visualizeImputedParentsWithcM_Functions.R")
+source("~/Documents/GitHub/RossIbarra_PHG_Notes/visualizations/visualizeImputedParentsWithcM_Functions.R")
+genMapFile <- "~/Documents/GitHub/RossIbarra_PHG_Notes/visualizations//ogut_v5_from_paulo.map.txt"
+#genMapFile <- "C://Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/visualizations/ogut_v5_from_paulo.map.txt"
 
 
 #################### don't edit below this line ##########################
@@ -112,7 +114,7 @@ if(singleFileOrFolder=="file"){
       geom_segment(aes(x=start,xend=end,y=0,yend=0,color=sample1),linewidth=5) +
       scale_color_manual(values=ggPlotParentVector) + 
       scale_y_discrete(drop=FALSE) +
-      ggtitle(paste0("Imputed Parent per Genetic Segments of Chr 1 for ",trialNameForPlot)) +
+      ggtitle(paste0("Imputed Parent per Genetic Segments of ",selectedChrom," for ",trialNameForPlot)) +
       xlab("cM")+
       ylab("NAM Parent")
     perChr1PlotSegments
@@ -122,10 +124,10 @@ if(singleFileOrFolder=="file"){
                                                             min.size=minThreshold)
     if(windowSize == "dynamic"){
       title <- paste0("Imputed Parent per cM (merged ranges smaller than ",
-                      minThreshold," cM, using dynamic windows) of Chr 1 for ",trialNameForPlot)
+                      minThreshold," cM, using dynamic windows) of ",selectedChrom," for ",trialNameForPlot)
     } else {
       title <- paste0("Imputed Parent per cM (merged ranges smaller than ",
-                      minThreshold," cM using ",windowSize," cM windows) of Chr 1 for ",trialNameForPlot)
+                      minThreshold," cM using ",windowSize," cM windows) of ",selectedChrom," for ",trialNameForPlot)
     }
     
     parentsNotInData <- ggplotParentColorsTable %>% filter(parent %notin% parentsCombinedWindows$sample1) %>% dplyr::rename(.,sample1=parent) %>% select(- color)
@@ -149,7 +151,6 @@ if(singleFileOrFolder=="file"){
     imputeParentsFile <- listOfFiles[i]
     trialNameForPlot <- gsub("_imputed_parents.txt","",basename(imputeParentsFile))
     dir_name <- dirname(imputeParentsFile)
-    outputFileName <- paste0(trialNameForPlot,filenameExtraInfo,"_plot.pdf")
     
     genMap <- read_delim(genMapFile, 
                          delim = "\t", escape_double = FALSE, 
@@ -208,6 +209,7 @@ if(singleFileOrFolder=="file"){
     combinedRegionParentsChr <- combinedRegionParents %>% filter(chrom==selectedChrom)
     
     if(is.na(windowSize)){
+      outputFileName <- paste0(trialNameForPlot,filenameExtraInfo,"_",selectedChrom,"_plot.pdf")
       parentsNotInData <- ggplotParentColorsTable %>% filter(parent %notin% combinedRegionParentsChr$sample1) %>% dplyr::rename(.,sample1=parent) %>% select(- color)
       dataToPlotChr <- plyr::rbind.fill(combinedRegionParentsChr,parentsNotInData)
       
@@ -216,19 +218,22 @@ if(singleFileOrFolder=="file"){
         geom_segment(aes(x=start,xend=end,y=0,yend=0,color=sample1),linewidth=5) +
         scale_color_manual(values=ggPlotParentVector) + 
         scale_y_discrete(drop=FALSE) +
-        ggtitle(paste0("Imputed Parent per Genetic Segments of Chr 1 for ",trialNameForPlot)) +
+        ggtitle(paste0("Imputed Parent per Genetic Segments of ",selectedChrom," for ",trialNameForPlot)) +
         xlab("cM")+
         ylab("NAM Parent")
     } else{
+      
       parentsCombinedWindows <- combineRegionsInCMWindow_mode(precombinedRegions=combinedRegionParentsChr,
                                                               window.size = windowSize,
                                                               min.size=minThreshold)
       if(windowSize == "dynamic"){
+        outputFileName <- paste0(trialNameForPlot,filenameExtraInfo,"_dynamicConcat_",selectedChrom,"_plot.pdf")
+        
         title <- paste0("Imputed Parent per cM (merged ranges smaller than ",
-                        minThreshold," cM, using dynamic windows) of Chr 1 for ",trialNameForPlot)
+                        minThreshold," cM, using dynamic windows) of ",selectedChrom," for ",trialNameForPlot)
       } else {
         title <- paste0("Imputed Parent per cM (merged ranges smaller than ",
-                        minThreshold," cM using ",windowSize," cM windows) of Chr 1 for ",trialNameForPlot)
+                        minThreshold," cM using ",windowSize," cM windows) of ",selectedChrom," for ",trialNameForPlot)
       }
       
       parentsNotInData <- ggplotParentColorsTable %>% filter(parent %notin% parentsCombinedWindows$sample1) %>% dplyr::rename(.,sample1=parent) %>% select(- color)
