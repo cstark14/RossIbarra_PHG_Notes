@@ -1,8 +1,8 @@
 #!/bin/bash -l
 #SBATCH -D /group/jrigrp11/cstark/
-#SBATCH -J phgNamRILSimpute
-#SBATCH -o /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_20241120_%j.sbatch.out
-#SBATCH -e /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_20241120_%j.sbatch.err
+#SBATCH -J phgNamRILSimpute0.99
+#SBATCH -o /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute0.99_20241121_%j.sbatch.out
+#SBATCH -e /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute0.99_20241121_%j.sbatch.err
 #SBATCH -t 24:00:00
 #SBATCH --partition=high2
 #SBATCH --ntasks=30
@@ -19,6 +19,6 @@ phg find-paths \
     --hvcf-dir /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/vcf_files \
     --reference-genome /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/updated_assemblies/B73.fa.gz \
     --path-type haploid \
-    --output-dir /group/jrigrp11/cstark/namRIL_GBS/imputed_prob0.9 \
+    --output-dir /group/jrigrp11/cstark/namRIL_GBS/imputed_prob0.99 \
     --prob-correct=0.99 \
-    --out-parents-dir /group/jrigrp11/cstark/namRIL_GBS/imputed_prob0.9/parents > /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_Acc0.9_20241120.out 2> /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_Acc0.9_20241120.err
+    --out-parents-dir /group/jrigrp11/cstark/namRIL_GBS/imputed_prob0.99/parents > /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_Acc0.99_20241121.out 2> /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_Acc0.99_20241121.err
