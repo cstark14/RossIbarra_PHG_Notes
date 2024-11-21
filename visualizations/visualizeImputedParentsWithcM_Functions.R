@@ -170,18 +170,21 @@ combineRegionsInCMWindow_mode <- function(precombinedRegions, window.size, min.s
                                            sample1 = current_label,chrom=currentChrom,length=current_end-current_start))
     if(current_end != first_end){
       #i <- j - 1
-      i <- which(precombinedRegions$start == current_end)
+      i <- ifelse(length(which(precombinedRegions$start == current_end))>0,which(precombinedRegions$start == current_end),nrow(precombinedRegions))
     } else {
       i <- i + 1
     }
     
   }
-  combinedUniqueEnds <- combined %>% distinct(end,sample1,.keep_all = T) %>%
+
+    combinedUniqueEnds <- combined %>% distinct(end,sample1,.keep_all = T) %>%
     mutate(new_group = (sample1 != lag(sample1, default = first(sample1))) | (chrom != lag(chrom, default = first(chrom)))) %>%
     mutate(group = cumsum(new_group)) %>%
     group_by(group, sample1,chrom) %>%
     summarize(start = round(min(start),4), end = round(max(end),4), .groups = 'drop') %>%
     mutate(length=end-start) 
+
+  
   return(combinedUniqueEnds)
 }
 
