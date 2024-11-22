@@ -17,19 +17,19 @@ singleFileOrFolder <- "folder" ### folder or file
 minThreshold <- 2 ### in cM, size of parent region which will flag to look for combination
 ### in cM, looks this number away from each feature and 
 ### combines of it finds the same feature within that window
-windowSize <- "dynamic" ### can be a number or "dynamic" or NA
-#windowSize <- NA
-selectedChrom <- "chr7"
+#windowSize <- "dynamic" ### can be a number or "dynamic" or NA
+windowSize <- NA
+selectedChrom <- "chr1"
 
 ##### below 3 lines only necessary for single files
-trialNameForPlot <- "SRR391113_Acc0.9"
+trialNameForPlot <- "SRR391113_Acc0.99"
 #imputeParentsFile <- "~//Downloads/parents_NAM_RILs_subset/SRR391118_imputed_parents.txt"
 #imputeParentsFile <- "C:/Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/subset/SRR391113_imputed_parents.txt"
 
 #### below lines for folder
-filenameExtraInfo <- "_Acc0.9" ### add any additional naming to the output file names..... assumes your filename is <identifier>_imputed_parents.txt
+filenameExtraInfo <- "_Acc0.99" ### add any additional naming to the output file names..... assumes your filename is <identifier>_imputed_parents.txt
 #folderPath <- "C:/Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/subset/"
-folderPath <- "~/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/subset/"
+folderPath <- "~/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/subset_Acc0.99"
 
 
 #source("C://Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/visualizations/visualizeImputedParentsWithcM_Functions.R")
