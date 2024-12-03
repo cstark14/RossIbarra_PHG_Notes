@@ -1,0 +1,2 @@
+Manisha (sp?) anchorwave viewer to see if spots with B73 are really
+Imputation requires ref Genome, have been giving it B73, but what if I use a diff genome? ---> run a couple samples
