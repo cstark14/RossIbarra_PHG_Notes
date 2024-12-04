@@ -21,7 +21,7 @@ phg find-paths \
     --path-type haploid \
     --output-dir /group/jrigrp11/cstark/namRIL_GBS/imputed_prob0.90_recomb0.0000001_maxAncestor2 \
     --prob-correct 0.90 \
-    --prob-same-gamete 0.999999 \
+    --prob-same-gamete 0.9999999999999999 \
     --use-likely-ancestors true \
     --max-ancestors 2 \
     --likely-ancestor-file /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_Acc0.90_recomb0.0000001_maxAncestor2_likelyAncestors.txt \

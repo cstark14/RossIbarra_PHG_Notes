@@ -22,14 +22,14 @@ windowSize <- NA
 selectedChrom <- "chr1"
 
 ##### below 3 lines only necessary for single files
-trialNameForPlot <- "SRR391113_Acc0.99"
+trialNameForPlot <- "SRR391113_Acc0.99_recomb0.000001_maxAncestor2"
 #imputeParentsFile <- "~//Downloads/parents_NAM_RILs_subset/SRR391118_imputed_parents.txt"
 #imputeParentsFile <- "C:/Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/subset/SRR391113_imputed_parents.txt"
 
 #### below lines for folder
 filenameExtraInfo <- "_Acc0.99" ### add any additional naming to the output file names..... assumes your filename is <identifier>_imputed_parents.txt
 #folderPath <- "C:/Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/subset/"
-folderPath <- "~/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/subset_Acc0.99"
+folderPath <- "~/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/subset_Acc0.90_recomb0.000001_maxAncestor2/"
 
 
 #source("C://Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/visualizations/visualizeImputedParentsWithcM_Functions.R")
