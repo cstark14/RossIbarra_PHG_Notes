@@ -12,7 +12,6 @@ options(scipen=999)
 options(stringsAsFactors=FALSE)
 "%notin%" <- Negate("%in%")
 
-
 singleFileOrFolder <- "folder" ### folder or file
 minThreshold <- 2 ### in cM, size of parent region which will flag to look for combination
 ### in cM, looks this number away from each feature and 
