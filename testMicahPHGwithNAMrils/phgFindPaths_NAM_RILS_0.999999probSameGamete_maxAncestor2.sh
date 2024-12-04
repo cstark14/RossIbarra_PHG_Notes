@@ -1,8 +1,8 @@
 #!/bin/bash -l
 #SBATCH -D /group/jrigrp11/cstark/
 #SBATCH -J phgNamRILSimpute0.90_recomb0.000001_maxAncestor2
-#SBATCH -o /group/jrigrp11/cstark/namRIL_GBS/%J_%j.sbatch.out
-#SBATCH -e /group/jrigrp11/cstark/namRIL_GBS/%J_%j.sbatch.err
+#SBATCH -o /group/jrigrp11/cstark/namRIL_GBS/%x_%j.sbatch.out
+#SBATCH -e /group/jrigrp11/cstark/namRIL_GBS/%x_%j.sbatch.err
 #SBATCH -t 24:00:00
 #SBATCH --partition=high2
 #SBATCH --ntasks=30
