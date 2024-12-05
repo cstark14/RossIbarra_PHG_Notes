@@ -10,6 +10,8 @@
 
 pip install demultiplex
 
+export PATH="/home/vale878/.local/bin/:$PATH"
+
 demultiplex demux -r --format unknown /group/jrigrp11/cstark/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/sampleNamesBarcodes.txt ../rawReads/*
 demultiplex demux -r -m5 -d -p /group/jrigrp11/cstark/namRILS_GBS/rawReads_demuxByName/. ../../RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/sampleNamesBarcodes.txt \
     /group/jrigrp11/cstark/namRILS_GBS/rawReads/SRR391097.fastq.gz 
