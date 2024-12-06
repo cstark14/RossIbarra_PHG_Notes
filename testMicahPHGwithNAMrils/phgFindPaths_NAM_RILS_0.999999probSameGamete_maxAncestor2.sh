@@ -25,4 +25,4 @@ phg find-paths \
     --use-likely-ancestors true \
     --max-ancestors 2 \
     --likely-ancestor-file /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_Acc0.90_recomb0.0000001_maxAncestor2_likelyAncestors.txt \
-    --out-parents-dir /group/jrigrp11/cstark/namRIL_GBS/imputed_prob0.90_recomb0.0000001_maxAncestor2/parents #> /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_Acc0.90_CML277_20241203.out 2> /group/jrigrp11/cstark/namRIL_GBS/phgNamRILSimpute_Acc0.90_CML277_20241203.err
+    --out-parents-dir /group/jrigrp11/cstark/namRIL_GBS/imputed_prob0.90_recomb0.0000001_maxAncestor2/parents 
