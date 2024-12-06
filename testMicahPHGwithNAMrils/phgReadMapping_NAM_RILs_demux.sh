@@ -1,6 +1,6 @@
 #!/bin/bash -l
 #SBATCH -D /group/jrigrp11/cstark/namRIL_GBS/
-#SBATCH -J phgNamRILSmapping
+#SBATCH -J phgNamRILSmapping_demux
 #SBATCH -o /group/jrigrp11/cstark/namRIL_GBS/logs/%x_%j.sbatch.out
 #SBATCH -e /group/jrigrp11/cstark/namRIL_GBS/logs/%x_%j.sbatch.err
 #SBATCH -t 24:00:00
