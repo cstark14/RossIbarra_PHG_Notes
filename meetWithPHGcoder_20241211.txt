@@ -1,0 +1,36 @@
+Meeting with PHG coder (Zachary Miller), Micah, Jeff, and Dan
+--- Anchorwave would sometimes tack on kmer to adjacent reference range
+----- Doesn't actually happen that much
+----- Current algorithm will still map and keep track of kmers, but throw out any kmers that don't have the highest match
+- some references ranges have 0 kmer count even though length can be 3k bases
+---- process removes Ns, removes mers less than 32. Creates 32 mers with step size of 1 (converts ACGT to numbers 0123), takes reverse compliment, filter to kmers that end with C (keeps number down, would be 600+ ram need without, keeps 3/10 cases) ---> ending in C is not hard coded (hashFilterValue in MapKmers, turn off hashMask by setting to 0 will keep all ending)
+		Dan wonders if you can just change to be 30 or 31 kmer (odd is not available now, but working on it) 
+----- maxHaps is hard coded to be 0.5*numSamples (count of kmer within haplotype)
+		If read doesn't have kmers, they're discarded as not useful
+-- Peter bradbury retired (he wrote the HMM)
+
+For NAM ril:
+--- read mapping file has some counts of hapIDs and kmers?
+		suspected an HMM emission prob issue
+	could be possible to provide map
+	could test lower prob same gamete on same data
+	when testing they don't look at haplotype lineage, they look at snp differences
+	if it's 100% id will have same hapID
+	will send build before release for changing the maxHaps parameter 
+Micah asked for kmerIndex stats file for Buckler's golden PHG (week turn around)
+
+Hoping to replace HMM with ML model (transformer), they are testing other mappers that could potentially allow for recomb in haplotype (instead of aggregating like now)
+
+They have not tested Het material (they've had users build with het material -- in lab Cassava, which was phased and split out into two genomes), has diploid pathfinding (I know this already)
+
+TileDB is used in current version of PHG, so hundreds of lines PHG should be fine
+
+Micah asked maxArgLength for kmerIndex: there's no direct wrapper from Kotlin to AGC program, have to sys call (mostly on operating system issue for calling AGC, currently set 200K characters in unix command)... Should only be touched when error is thrown -> reduce down\
+
+Can check snp level by comparing messy samples to cleaner samples (on our end)
+
+After meeting with Dan:
+Test with pseudogenomes where we only have one recombination (B73 to CML27 to B73 then all B73), sim GBS reads (use their GBS RE sites, find the sites, simulate 50 bp following the coordinates with Poisson/normal sampling of them, measure accuracy. Repeat with diff types of recombination)
+----- can make prob recombination constant in distance or cM
+Consider making a side script that put things back into phys pos (have two versions)
+For testing: What if we took out pseudogenomes from PHG and run NAM RILs in that, compare to current PHG
