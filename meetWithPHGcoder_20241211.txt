@@ -30,7 +30,7 @@ Micah asked maxArgLength for kmerIndex: there's no direct wrapper from Kotlin to
 Can check snp level by comparing messy samples to cleaner samples (on our end)
 
 After meeting with Dan:
-Test with pseudogenomes where we only have one recombination (B73 to CML27 to B73 then all B73), sim GBS reads (use their GBS RE sites, find the sites, simulate 50 bp following the coordinates with Poisson/normal sampling of them, measure accuracy. Repeat with diff types of recombination)
+Test with pseudogenomes where we only have one recombination (B73 to CML27 to B73 then all B73), sim GBS reads (use their GBS RE sites, find the sites, simulate 50 bp following the coordinates with Poisson/normal sampling of them, measure accuracy. Repeat with diff types of recombination) -- GBSPacecar or GBSX
 ----- can make prob recombination constant in distance or cM
 Consider making a side script that put things back into phys pos (have two versions)
 For testing: What if we took out pseudogenomes from PHG and run NAM RILs in that, compare to current PHG
