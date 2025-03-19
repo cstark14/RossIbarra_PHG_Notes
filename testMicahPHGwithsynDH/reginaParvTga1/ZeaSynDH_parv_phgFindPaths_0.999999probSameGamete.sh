@@ -22,6 +22,5 @@ phg find-paths \
     --output-dir /group/jrigrp11/cstark/zeasynDH/imputed_prob0.90_recomb0.0000001 \
     --prob-correct 0.90 \
     --prob-same-gamete 0.9999999999999999 \
-    --use-likely-ancestors true \
     --likely-ancestor-file /group/jrigrp11/cstark/zeasynDH/ZeaSynDH_parv_impute_Acc0.90_recomb0.0000001_likelyAncestors.txt \
     --out-parents-dir /group/jrigrp11/cstark/zeasynDH/imputed_prob0.90_recomb0.0000001/parents 
