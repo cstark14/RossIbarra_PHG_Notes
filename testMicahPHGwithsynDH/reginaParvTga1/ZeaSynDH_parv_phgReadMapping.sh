@@ -16,5 +16,5 @@ export JAVA_OPTS="-Xmx240g"
 
 phg map-kmers \
     --hvcf-dir /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/vcf_files \
-    --key-file /group/jrigrp11/cstark/RossIbarra_PHG_Notes/reginaParvTga1/ZeaSynDH_parv_mappingKeyfile.txt \
+    --key-file /group/jrigrp11/cstark/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/reginaParvTga1/ZeaSynDH_parv_mappingKeyfile.txt \
     --output-dir /group/jrigrp11/cstark/zeasynDH/readmapped/

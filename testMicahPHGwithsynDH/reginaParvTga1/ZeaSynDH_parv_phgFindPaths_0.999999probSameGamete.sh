@@ -15,7 +15,7 @@ export PATH="/group/jrigrp11/cstark/phg/bin:$PATH"
 export JAVA_OPTS="-Xmx240g"
 
 phg find-paths \
-    --path-keyfile /group/jrigrp11/cstark/RossIbarra_PHG_Notes/reginaParvTga1/ZeaSynDH_parv_imputeKeyfile.txt \
+    --path-keyfile /group/jrigrp11/cstark/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/reginaParvTga1/ZeaSynDH_parv_imputeKeyfile.txt \
     --hvcf-dir /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/vcf_files \
     --reference-genome /group/jrigrp11/cstark/filesFromMicahK_Danforth/phg_v2.4.8.162_ZeaSyn/output/updated_assemblies/B73.fa.gz \
     --path-type haploid \
