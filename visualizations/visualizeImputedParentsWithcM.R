@@ -12,23 +12,24 @@ options(scipen=999)
 options(stringsAsFactors=FALSE)
 "%notin%" <- Negate("%in%")
 
-singleFileOrFolder <- "folder" ### folder or file
+singleFileOrFolder <- "file" ### folder or file
 minThreshold <- 2 ### in cM, size of parent region which will flag to look for combination
 ### in cM, looks this number away from each feature and 
 ### combines of it finds the same feature within that window
 #windowSize <- "dynamic" ### can be a number or "dynamic" or NA
-windowSize <- NA
-selectedChrom <- "chr1"
+windowSize <- "dynamic"
+selectedChrom <- "chr4"
 
 ##### below 3 lines only necessary for single files
-trialNameForPlot <- "SRR391113_Acc0.90_recomb0.000001_maxAncestor2"
+#trialNameForPlot <- "SRR391113_Acc0.90_recomb0.000001_maxAncestor2"
+trialNameForPlot <- "ZeaSynDH-1092_Acc0.90"
 #imputeParentsFile <- "~//Downloads/parents_NAM_RILs_subset/SRR391118_imputed_parents.txt"
-#imputeParentsFile <- "C:/Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/subset/SRR391113_imputed_parents.txt"
+imputeParentsFile <- "C:/Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithsynDH/0.9mapAccuracy/"
 
 #### below lines for folder
-filenameExtraInfo <- "_Acc0.90_recomb0.000001_maxAncestor2" ### add any additional naming to the output file names..... assumes your filename is <identifier>_imputed_parents.txt
+#filenameExtraInfo <- "_Acc0.90_recomb0.000001_maxAncestor2" ### add any additional naming to the output file names..... assumes your filename is <identifier>_imputed_parents.txt
 #folderPath <- "C:/Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/subset/"
-folderPath <- "~/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/subset_Acc0.90_recomb0.000001_maxAncestor2/"
+#folderPath <- "~/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/subset_Acc0.90_recomb0.000001_maxAncestor2/"
 
 
 #source("C://Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/visualizations/visualizeImputedParentsWithcM_Functions.R")
