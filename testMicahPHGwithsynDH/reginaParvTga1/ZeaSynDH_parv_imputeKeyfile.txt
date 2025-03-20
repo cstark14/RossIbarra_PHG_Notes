@@ -1,2 +1,3 @@
 sampleName	filename
 ZeaSynDH_14FG2474	/group/jrigrp11/cstark/zeasynDH/readmapped/ZeaSynDH_14FG2474_readMapping.txt
+ZeaSynDH_14FG2711	/group/jrigrp11/cstark/zeasynDH/readmapped/ZeaSynDH_14FG2711_readMapping.txt
