@@ -22,9 +22,9 @@ selectedChrom <- "chr4"
 
 ##### below 3 lines only necessary for single files
 #trialNameForPlot <- "SRR391113_Acc0.90_recomb0.000001_maxAncestor2"
-trialNameForPlot <- "ZeaSynDH-1092_Acc0.90"
+trialNameForPlot <- "ZeaSynDH-2474_Acc0.90"
 #imputeParentsFile <- "~//Downloads/parents_NAM_RILs_subset/SRR391118_imputed_parents.txt"
-imputeParentsFile <- "C:/Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithsynDH/0.9mapAccuracy/"
+imputeParentsFile <- "C:/Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithsynDH/reginaParvTga1/ZeaSynDH_14FG2474_imputed_parents.txt"
 
 #### below lines for folder
 #filenameExtraInfo <- "_Acc0.90_recomb0.000001_maxAncestor2" ### add any additional naming to the output file names..... assumes your filename is <identifier>_imputed_parents.txt
@@ -32,10 +32,10 @@ imputeParentsFile <- "C:/Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/te
 #folderPath <- "~/Documents/GitHub/RossIbarra_PHG_Notes/testMicahPHGwithNAMrils/subset_Acc0.90_recomb0.000001_maxAncestor2/"
 
 
-#source("C://Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/visualizations/visualizeImputedParentsWithcM_Functions.R")
-source("~/Documents/GitHub/RossIbarra_PHG_Notes/visualizations/visualizeImputedParentsWithcM_Functions.R")
-genMapFile <- "~/Documents/GitHub/RossIbarra_PHG_Notes/visualizations//ogut_v5_from_paulo.map.txt"
-#genMapFile <- "C://Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/visualizations/ogut_v5_from_paulo.map.txt"
+source("C://Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/visualizations/visualizeImputedParentsWithcM_Functions.R")
+#source("~/Documents/GitHub/RossIbarra_PHG_Notes/visualizations/visualizeImputedParentsWithcM_Functions.R")
+#genMapFile <- "~/Documents/GitHub/RossIbarra_PHG_Notes/visualizations//ogut_v5_from_paulo.map.txt"
+genMapFile <- "C://Users/Cristian/Documents/GitHub/RossIbarra_PHG_Notes/visualizations/ogut_v5_from_paulo.map.txt"
 
 
 #################### don't edit below this line ##########################
