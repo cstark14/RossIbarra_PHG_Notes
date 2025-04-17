@@ -1,3 +1,4 @@
 sampleName	filename
 ZeaSynDH_14FG2474	/group/jrigrp10/synthetic_load/fastq_data/synDH_fastq/ZeaSynDH_14FG2474:250457409_HF5VLBGXX_1_CAGTTGA.fastq.gz
 ZeaSynDH_14FD2711	/group/jrigrp10/synthetic_load/fastq_data/synDH_fastq/ZeaSynDH_14FG2711:250457644_H7Y2CBGXX_1_GCTAATT.fastq.gz
+ZeaSynDH_14FD2711	/group/jrigrp10/synthetic_load/fastq_data/synDH_fastq/ZeaSynDH_14FG2163:250457125_H7Y2CBGXX_1_CCACGT.fastq.gz
